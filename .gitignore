@@ -1,0 +1,14 @@
+*
+!/resources
+!/resources/**
+!/.gitignore
+!/card_info.py
+!/card_maker.py
+!/config.py
+!/DeckBuild.lua
+!/generate_default_jsons.py
+!/mass_producer_xlsx.py
+!/README.md
+!/requirements.txt
+!/run_mass_producer.py
+!/template_mass_producer_params_xlsx.json

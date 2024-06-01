@@ -1,0 +1,27 @@
+{
+    "xlsx_paths": [
+        "sheets/基础包/基础包-生物.xlsx",
+        "sheets/异域奇闻/异域奇闻-技能.xlsx"
+    ],
+    "drawing_paths": [
+        "drawings/基础包/基础包-生物",
+        "drawings/异域奇闻/异域奇闻-技能"
+    ],
+    "version_names": ["基础包", "异域奇闻"],
+
+    "尺寸": 2,
+    "打印版": false,
+    "@排版": "游戏王or万智牌",
+    "排版": "游戏王",
+
+    "overwrite": true,
+    "@overwrite": "是否覆盖已有文件",
+
+    "new_cards_only": false,
+    "@new_cards_only": "是否只生成新卡牌，如果为false，则生成所有卡牌；如果为true，只会生成上次all_card_infos.json中变动过的或者输出目录下没有的卡牌",
+
+    "general_path": "resources/general",
+    "font_path": "resources/fonts",
+    "produce_all_card_infos_json": true,
+    "@produce_all_card_infos_json": "是否生成所有卡牌信息用于组卡器，如果为false，则只生成卡牌图片"
+}
