@@ -97,6 +97,8 @@ class MassProducerXlsx:
             card_info.number = (
                 "" if pd.isnull(df_row["编号"]) else str(int(df_row["编号"]))
             )
+        if card_info.number == "":
+            return None
         if "属性" in df_row.keys():
             card_info.category = (
                 ""
@@ -266,7 +268,7 @@ class MassProducerXlsx:
                     try:
                         card_info = self.get_card_info_from_row(row, version_name)
                     except Exception as e:
-                        print("Error encountered when parsing row: ", row, e)
+                        print("Error encountered when parsing row: ", index, row, e)
                         self.error_log.append(str(row) + " " + str(e))
                         continue
                     if card_info is None:
