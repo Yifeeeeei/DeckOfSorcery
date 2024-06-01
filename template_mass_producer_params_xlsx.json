@@ -21,7 +21,5 @@
     "@new_cards_only": "是否只生成新卡牌，如果为false，则生成所有卡牌；如果为true，只会生成上次all_card_infos.json中变动过的或者输出目录下没有的卡牌",
 
     "general_path": "resources/general",
-    "font_path": "resources/fonts",
-    "produce_all_card_infos_json": true,
-    "@produce_all_card_infos_json": "是否生成所有卡牌信息用于组卡器，如果为false，则只生成卡牌图片"
+    "font_path": "resources/fonts"
 }

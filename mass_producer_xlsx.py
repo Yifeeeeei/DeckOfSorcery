@@ -307,27 +307,27 @@ class MassProducerXlsx:
                             "Error encountered when drawing card: ", card_info.name, e
                         )
                         self.all_card_infos.pop()
-        if self.mass_producer_params["produce_all_card_infos_json"]:
-            if not os.path.exists(self.mass_producer_params["output_path"]):
-                os.makedirs(self.mass_producer_params["output_path"])
-            all_card_infos_json_path = os.path.join(
-                self.mass_producer_params["output_path"], "all_card_infos.json"
-            )
-            json.dump(
-                self.all_card_infos,
-                open(all_card_infos_json_path, "w", encoding="utf-8"),
-                ensure_ascii=False,
-            )
-            simplified_card_infos = []
-            for card_info_dict in self.all_card_infos:
-                simplified_card_info = {}
-                simplified_card_info["number"] = card_info_dict["output_path"]
-                simplified_card_infos.append(simplified_card_info)
-            simplified_card_infos_json_path = os.path.join(
-                self.mass_producer_params["output_path"], "simplified_card_infos.json"
-            )
-            json.dump(
-                simplified_card_infos,
-                open(simplified_card_infos_json_path, "w", encoding="utf-8"),
-                ensure_ascii=False,
-            )
+        # save all_card_infos and generate simplified_card_infos
+        if not os.path.exists(self.mass_producer_params["output_path"]):
+            os.makedirs(self.mass_producer_params["output_path"])
+        all_card_infos_json_path = os.path.join(
+            self.mass_producer_params["output_path"], "all_card_infos.json"
+        )
+        json.dump(
+            self.all_card_infos,
+            open(all_card_infos_json_path, "w", encoding="utf-8"),
+            ensure_ascii=False,
+        )
+        simplified_card_infos = []
+        for card_info_dict in self.all_card_infos:
+            simplified_card_info = {}
+            simplified_card_info["number"] = card_info_dict["output_path"]
+            simplified_card_infos.append(simplified_card_info)
+        simplified_card_infos_json_path = os.path.join(
+            self.mass_producer_params["output_path"], "simplified_card_infos.json"
+        )
+        json.dump(
+            simplified_card_infos,
+            open(simplified_card_infos_json_path, "w", encoding="utf-8"),
+            ensure_ascii=False,
+        )
