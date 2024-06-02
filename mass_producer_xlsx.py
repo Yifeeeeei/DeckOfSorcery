@@ -323,7 +323,9 @@ class MassProducerXlsx:
         simplified_card_infos = []
         for card_info_dict in self.all_card_infos:
             simplified_card_info = {}
-            simplified_card_info["number"] = card_info_dict["output_path"]
+            simplified_card_info[card_info_dict["number"]] = card_info_dict[
+                "output_path"
+            ]
             simplified_card_infos.append(simplified_card_info)
         simplified_card_infos_json_path = os.path.join(
             self.mass_producer_params["output_path"], "simplified_card_infos.json"
