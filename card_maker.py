@@ -379,6 +379,50 @@ class CardMaker:
 
         return base_image
 
+    def draw_type_logo(self, card_info: CardInfo, base_image: PIL.Image):
+        card_type = self.get_card_type_from_card_number(card_info)
+        type_logo = None
+        if card_type == "英雄":
+            type_logo = self.get_image_without_extension(
+                os.path.join(self.config.general_path, "hero_logo")
+            )
+        elif card_type == "生物":
+            type_logo = self.get_image_without_extension(
+                os.path.join(self.config.general_path, "unit_logo")
+            )
+        elif card_type == "技能":
+            type_logo = self.get_image_without_extension(
+                os.path.join(self.config.general_path, "ability_logo")
+            )
+        elif card_type == "道具":
+            type_logo = self.get_image_without_extension(
+                os.path.join(self.config.general_path, "item_logo")
+            )
+        else:
+            print(
+                "invalid card type: " + card_type,
+                "for card number: ",
+                card_info.number,
+                "name: ",
+                card_info.name,
+            )
+            return base_image
+        type_logo = self.adjust_image(
+            type_logo, (self.config.type_logo_width, self.config.type_logo_width)
+        )
+
+        base_image.paste(
+            type_logo,
+            (
+                self.config.type_logo_left,
+                self.config.type_logo_to_block_top
+                + self.config.drawing_to_upper
+                + self.config.drawing_height,
+            ),
+            mask=type_logo,
+        )
+        return base_image
+
     def draw_tag(self, card_info: CardInfo, base_image: PIL.Image):
         font = PIL.ImageFont.truetype(
             os.path.join(self.config.font_path, self.config.tag_font),
@@ -984,6 +1028,8 @@ class CardMaker:
         base_image = self.draw_category_and_name(card_info, base_image)
         # 准备费用
         base_image = self.draw_cost(card_info, base_image)
+        # 准备类别logo
+        base_image = self.draw_type_logo(card_info, base_image)
         # 准备标签
         base_image = self.draw_tag(card_info, base_image)
         # 准备卡牌描述和引言
@@ -1006,6 +1052,8 @@ class CardMaker:
         base_image = self.draw_cost(card_info, base_image)
         # 准备代价
         base_image = self.draw_expense(card_info, base_image)
+        # 准备类别logo
+        base_image = self.draw_type_logo(card_info, base_image)
         # 准备标签
         base_image = self.draw_tag(card_info, base_image)
         # 准备卡牌描述和引言
@@ -1027,6 +1075,8 @@ class CardMaker:
         base_image = self.draw_cost(card_info, base_image)
         # 准备代价
         base_image = self.draw_expense(card_info, base_image)
+        # 准备类别logo
+        base_image = self.draw_type_logo(card_info, base_image)
         # 准备标签
         base_image = self.draw_tag(card_info, base_image)
         # 准备卡牌描述和引言
@@ -1048,6 +1098,8 @@ class CardMaker:
         base_image = self.draw_category_and_name(card_info, base_image)
         # 准备费用
         base_image = self.draw_cost(card_info, base_image)
+        # 准备类别logo
+        base_image = self.draw_type_logo(card_info, base_image)
         # 准备标签
         base_image = self.draw_tag(card_info, base_image)
         # 准备卡牌描述和引言

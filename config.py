@@ -103,11 +103,15 @@ class Config_YuGiOh(Config):
         self.expense_rect_fill = (255, 195, 0)
         self.expense_rect_outline_color = (255, 255, 255)
         self.expense_rect_outline_width = int(3 * size_ratio)
+        # 类别logo
+        self.type_logo_width = int(30 * size_ratio)
+        self.type_logo_left = int(50 * size_ratio)
+        self.type_logo_to_block_top = int(18 * size_ratio)
         # 标签
         self.tag_font = "NotoSerifSC-Medium.ttf"
         self.tag_font_size = int(24 * size_ratio)
         self.tag_font_color = (0, 0, 0)
-        self.tag_text_left = int(50 * size_ratio)
+        self.tag_text_left = int((50 + 40) * size_ratio)
         self.tag_text_to_block_top = int(15 * size_ratio)
         # 卡牌描述
         self.discription_font = "NotoSerifSC-Medium.ttf"
@@ -277,11 +281,15 @@ class Config_Magic(Config):
         self.expense_rect_fill = (255, 195, 0)
         self.expense_rect_outline_color = (255, 255, 255)
         self.expense_rect_outline_width = int(3 * size_ratio)
+        # 类别logo
+        self.type_logo_width = int(30 * size_ratio)
+        self.type_logo_left = int(50 * size_ratio)
+        self.type_logo_to_block_top = int(18 * size_ratio)
         # 标签
         self.tag_font = "NotoSerifSC-Medium.ttf"
         self.tag_font_size = int(24 * size_ratio)
         self.tag_font_color = (0, 0, 0)
-        self.tag_text_left = int(50 * size_ratio)
+        self.tag_text_left = int((50 + 40) * size_ratio)
         self.tag_text_to_block_top = int(15 * size_ratio)
         # 卡牌描述
         self.discription_font = "NotoSerifSC-Medium.ttf"
