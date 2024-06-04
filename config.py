@@ -1,6 +1,7 @@
 """
 配置文件
 """
+
 import os
 
 
@@ -103,20 +104,20 @@ class Config_YuGiOh(Config):
         self.expense_rect_outline_color = (255, 255, 255)
         self.expense_rect_outline_width = int(3 * size_ratio)
         # 标签
-        self.tag_font = "FangZhengKaiTiJianTi-1.ttf"
+        self.tag_font = "NotoSerifSC-Medium.ttf"
         self.tag_font_size = int(24 * size_ratio)
         self.tag_font_color = (0, 0, 0)
         self.tag_text_left = int(50 * size_ratio)
         self.tag_text_to_block_top = int(15 * size_ratio)
         # 卡牌描述
-        self.discription_font = "FangZhengKaiTiJianTi-1.ttf"
+        self.discription_font = "NotoSerifSC-Medium.ttf"
         self.discription_font_size = int(24 * size_ratio)
         self.discription_font_color = (0, 0, 0)
         self.discription_text_left = int(50 * size_ratio)
         self.discription_text_to_block_top = int(55 * size_ratio)
         self.discription_line_spacing = int(10 * size_ratio)
         # 卡牌引言
-        self.quote_font = "FangZhengKaiTiJianTi-1.ttf"
+        self.quote_font = "NotoSerifSC-Medium.ttf"
         self.quote_font_size = int(20 * size_ratio)
         self.quote_font_color = (32, 32, 32)
         self.quote_text_left = int(100 * size_ratio)
@@ -277,20 +278,20 @@ class Config_Magic(Config):
         self.expense_rect_outline_color = (255, 255, 255)
         self.expense_rect_outline_width = int(3 * size_ratio)
         # 标签
-        self.tag_font = "FangZhengKaiTiJianTi-1.ttf"
+        self.tag_font = "NotoSerifSC-Medium.ttf"
         self.tag_font_size = int(24 * size_ratio)
         self.tag_font_color = (0, 0, 0)
         self.tag_text_left = int(50 * size_ratio)
         self.tag_text_to_block_top = int(15 * size_ratio)
         # 卡牌描述
-        self.discription_font = "FangZhengKaiTiJianTi-1.ttf"
+        self.discription_font = "NotoSerifSC-Medium.ttf"
         self.discription_font_size = int(24 * size_ratio)
         self.discription_font_color = (0, 0, 0)
         self.discription_text_left = int(50 * size_ratio)
         self.discription_text_to_block_top = int(55 * size_ratio)
         self.discription_line_spacing = int(10 * size_ratio)
         # 卡牌引言
-        self.quote_font = "FangZhengKaiTiJianTi-1.ttf"
+        self.quote_font = "NotoSerifSC-Medium.ttf"
         self.quote_font_size = int(20 * size_ratio)
         self.quote_font_color = (32, 32, 32)
         self.quote_text_left = int(100 * size_ratio)
