@@ -1060,16 +1060,27 @@ class CardMaker:
         base_image = self.draw_number(card_info, base_image)
         return base_image
 
+    def get_card_type_from_card_number(self, card_info: CardInfo):
+        if card_info.number[0] == "1":
+            return "生物"
+        elif card_info.number[0] == "2":
+            return "道具"
+        elif card_info.number[0] == "3":
+            return "技能"
+        elif card_info.number[0] == "4":
+            return "英雄"
+
     def make_card(self, card_info: CardInfo):
-        if card_info.type == "生物":
+        card_type = self.get_card_type_from_card_number(card_info)
+        if card_type == "生物":
             result = self.make_unit_card(card_info)
             return result
-        elif card_info.type == "技能":
+        elif card_type == "技能":
             result = self.make_ability_card(card_info)
             return result
-        elif card_info.type == "道具":
+        elif card_type == "道具":
             result = self.make_item_card(card_info)
             return result
-        elif card_info.type == "英雄":
+        elif card_type == "英雄":
             result = self.make_hero_card(card_info)
             return result
