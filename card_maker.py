@@ -259,6 +259,44 @@ class CardMaker:
             os.path.join(self.config.general_path, self.config.element_images[category])
         )
 
+    def get_rect_fill_color(self, card_info: CardInfo):
+        if card_info.category == "光":
+            return (255, 240, 184)
+        elif card_info.category == "暗":
+            return (200, 200, 200)
+        elif card_info.category == "火":
+            return (255, 169, 167)
+        elif card_info.category == "水":
+            return (167, 233, 255)
+        elif card_info.category == "气":
+            return (253, 227, 255)
+        elif card_info.category == "地":
+            return (233, 203, 177)
+        elif card_info.category == "?":
+            return (250, 250, 250)
+        else:
+            print("invalid category: " + card_info.category)
+            return None
+
+    def get_rect_outline_color(self, card_info: CardInfo):
+        if card_info.category == "光":
+            return (0, 0, 0)
+        elif card_info.category == "暗":
+            return (0, 0, 0)
+        elif card_info.category == "火":
+            return (0, 0, 0)
+        elif card_info.category == "水":
+            return (0, 0, 0)
+        elif card_info.category == "气":
+            return (0, 0, 0)
+        elif card_info.category == "地":
+            return (0, 0, 0)
+        elif card_info.category == "?":
+            return (0, 0, 0)
+        else:
+            print("invalid category: " + card_info.category)
+            return None
+
     def draw_category_and_name(self, card_info: CardInfo, base_image: PIL.Image):
         # add name
         text_font = PIL.ImageFont.truetype(
@@ -277,8 +315,8 @@ class CardMaker:
             base_image,
             (left, top, right, bottom),
             self.config.name_rect_radius,
-            self.config.name_rect_fill,
-            self.config.name_rect_outline_color,
+            self.get_rect_fill_color(card_info),
+            self.get_rect_outline_color(card_info),
             self.config.name_rect_outline_width,
         )
         text_left = (
@@ -349,7 +387,7 @@ class CardMaker:
             base_image,
             (rect_left, rect_top, rect_right, rect_bottom),
             self.config.cost_rect_radius,
-            self.config.cost_rect_fill,
+            self.get_rect_fill(card_info),
             self.config.cost_rect_outline_color,
             self.config.cost_rect_outline_width,
         )
@@ -653,8 +691,8 @@ class CardMaker:
             base_image,
             (rect_left, rect_top, rect_right, rect_bottom),
             self.config.gain_rect_radius,
-            self.config.gain_rect_fill,
-            self.config.gain_rect_outline_color,
+            self.get_rect_fill_color(card_info),
+            self.get_rect_outline_color(card_info),
             self.config.gain_rect_outline_width,
         )
         # put in the numbers and categories
@@ -745,8 +783,8 @@ class CardMaker:
                 base_image,
                 (left, top, right, bottom),
                 self.config.life_rect_radius,
-                self.config.life_rect_fill,
-                self.config.life_rect_outline_color,
+                self.get_rect_fill_color(card_info),
+                self.get_rect_outline_color(card_info),
                 self.config.life_rect_outline_width,
             )
 
@@ -809,8 +847,8 @@ class CardMaker:
                 base_image,
                 (left, top, right, bottom),
                 self.config.attack_rect_radius,
-                self.config.attack_rect_fill,
-                self.config.attack_rect_outline_color,
+                self.get_rect_fill_color(card_info),
+                self.get_rect_outline_color(card_info),
                 self.config.attack_rect_outline_width,
             )
             left_pointer = left + self.config.attack_padding
@@ -887,8 +925,8 @@ class CardMaker:
             base_image,
             (left, top, right, bottom),
             self.config.power_or_duration_rect_radius,
-            self.config.power_or_duration_rect_fill,
-            self.config.power_or_duration_rect_outline_color,
+            self.get_rect_fill_color(card_info),
+            self.get_rect_outline_color(card_info),
             self.config.power_or_duration_rect_outline_width,
         )
 
@@ -959,8 +997,8 @@ class CardMaker:
             base_image,
             (rect_left, rect_top, rect_right, rect_bottom),
             self.config.expense_rect_radius,
-            self.config.expense_rect_fill,
-            self.config.expense_rect_outline_color,
+            self.get_rect_fill_color(card_info),
+            self.get_rect_outline_color(card_info),
             self.config.expense_rect_outline_width,
         )
         # put in the numbers and categories
