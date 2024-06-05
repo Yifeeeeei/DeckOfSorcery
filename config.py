@@ -50,7 +50,11 @@ class Config_YuGiOh(Config):
         # 卡片边框
         self.border_width = int(580 * size_ratio)
         self.border_height = int(830 * size_ratio)
-        self.type_border = {"生物": "border", "技能": "border4", "道具": "border3"}
+        self.type_border = {
+            "生物": "border_unit",
+            "技能": "border_ability",
+            "道具": "border_item",
+        }
         # 英雄牌
         self.reverse_color_for_hero = True
         # 底部的白色块
@@ -228,7 +232,11 @@ class Config_Magic(Config):
         # 卡片边框
         self.border_width = int(600 * size_ratio)
         self.border_height = int(860 * size_ratio)
-        self.type_border = {"生物": "border", "技能": "border4", "道具": "border3"}
+        self.type_border = {
+            "生物": "border_unit",
+            "技能": "border_ability",
+            "道具": "border_item",
+        }
         # 英雄牌
         self.reverse_color_for_hero = True
         # 底部的白色块
