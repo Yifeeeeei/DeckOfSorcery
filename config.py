@@ -66,10 +66,10 @@ class Config_YuGiOh(Config):
         self.name_rect_left = int(60 * size_ratio)
         self.name_rect_top = int(10 * size_ratio)
         self.name_rect_radius = int(10 * size_ratio)
-        self.name_rect_fill = (255, 195, 0)
+        self.name_rect_fill = (250, 250, 250)
         self.name_text_to_left = int(90 * size_ratio)
         self.name_text_left_compensation = 5
-        self.name_rect_outline_color = (255, 255, 255)
+        self.name_rect_outline_color = (135, 135, 135)
         self.name_rect_outline_width = int(3 * size_ratio)
         self.name_text_font_color = (0, 0, 0)
         self.name_category_width = int(80 * size_ratio)
@@ -86,8 +86,8 @@ class Config_YuGiOh(Config):
         self.cost_rect_left = int(10 * size_ratio)
         self.cost_rect_height = int(50 * size_ratio)
         self.cost_rect_radius = int(25 * size_ratio)
-        self.cost_rect_fill = (255, 195, 0)
-        self.cost_rect_outline_color = (255, 255, 255)
+        self.cost_rect_fill = (250, 250, 250)
+        self.cost_rect_outline_color = (135, 135, 135)
         self.cost_rect_outline_width = int(3 * size_ratio)
         # 中央代价
         self.expense_font_size = int(30 * size_ratio)
@@ -100,28 +100,28 @@ class Config_YuGiOh(Config):
         self.expense_rect_right = int(580 * size_ratio)
         self.expense_rect_height = int(50 * size_ratio)
         self.expense_rect_radius = int(25 * size_ratio)
-        self.expense_rect_fill = (255, 195, 0)
-        self.expense_rect_outline_color = (255, 255, 255)
+        self.expense_rect_fill = (250, 250, 250)
+        self.expense_rect_outline_color = (135, 135, 135)
         self.expense_rect_outline_width = int(3 * size_ratio)
         # 类别logo
         self.type_logo_width = int(30 * size_ratio)
         self.type_logo_left = int(50 * size_ratio)
         self.type_logo_to_block_top = int(18 * size_ratio)
         # 标签
-        self.tag_font = "NotoSerifSC-Medium.ttf"
+        self.tag_font = "LXGWWenKaiMono-Regular.ttf"
         self.tag_font_size = int(24 * size_ratio)
         self.tag_font_color = (0, 0, 0)
         self.tag_text_left = int((50 + 40) * size_ratio)
         self.tag_text_to_block_top = int(15 * size_ratio)
         # 卡牌描述
-        self.discription_font = "NotoSerifSC-Medium.ttf"
+        self.discription_font = "LXGWWenKaiMono-Regular.ttf"
         self.discription_font_size = int(24 * size_ratio)
         self.discription_font_color = (0, 0, 0)
         self.discription_text_left = int(50 * size_ratio)
         self.discription_text_to_block_top = int(55 * size_ratio)
         self.discription_line_spacing = int(10 * size_ratio)
         # 卡牌引言
-        self.quote_font = "NotoSerifSC-Medium.ttf"
+        self.quote_font = "LXGWWenKaiMono-Regular.ttf"
         self.quote_font_size = int(20 * size_ratio)
         self.quote_font_color = (32, 32, 32)
         self.quote_text_left = int(100 * size_ratio)
@@ -138,8 +138,8 @@ class Config_YuGiOh(Config):
         self.gain_rect_right = int(580 * size_ratio)
         self.gain_rect_height = int(50 * size_ratio)
         self.gain_rect_radius = int(25 * size_ratio)
-        self.gain_rect_fill = (255, 195, 0)
-        self.gain_rect_outline_color = (255, 255, 255)
+        self.gain_rect_fill = (250, 250, 250)
+        self.gain_rect_outline_color = (135, 135, 135)
         self.gain_rect_outline_width = int(3 * size_ratio)
         # 底部生命
         self.life_font_size = int(30 * size_ratio)
@@ -152,8 +152,8 @@ class Config_YuGiOh(Config):
         self.life_rect_left = int(10 * size_ratio)
         self.life_rect_height = int(50 * size_ratio)
         self.life_rect_radius = int(25 * size_ratio)
-        self.life_rect_fill = (255, 195, 0)
-        self.life_rect_outline_color = (255, 255, 255)
+        self.life_rect_fill = (250, 250, 250)
+        self.life_rect_outline_color = (135, 135, 135)
         self.life_rect_outline_width = int(3 * size_ratio)
         # 底部攻击
         self.attack_font_size = int(30 * size_ratio)
@@ -166,8 +166,8 @@ class Config_YuGiOh(Config):
         # self.life_rect_left = ??? we will calculate this in the process
         self.attack_rect_height = int(50 * size_ratio)
         self.attack_rect_radius = int(25 * size_ratio)
-        self.attack_rect_fill = (255, 195, 0)
-        self.attack_rect_outline_color = (255, 255, 255)
+        self.attack_rect_fill = (250, 250, 250)
+        self.attack_rect_outline_color = (135, 135, 135)
         self.attack_rect_outline_width = int(3 * size_ratio)
         # 底部威力或持续时间
         self.power_or_duration_font_size = int(30 * size_ratio)
@@ -180,8 +180,8 @@ class Config_YuGiOh(Config):
         self.power_or_duration_rect_right = int(580 * size_ratio)
         self.power_or_duration_rect_height = int(50 * size_ratio)
         self.power_or_duration_rect_radius = int(25 * size_ratio)
-        self.power_or_duration_rect_fill = (255, 195, 0)
-        self.power_or_duration_rect_outline_color = (255, 255, 255)
+        self.power_or_duration_rect_fill = (250, 250, 250)
+        self.power_or_duration_rect_outline_color = (135, 135, 135)
         self.power_or_duration_rect_outline_width = int(3 * size_ratio)
         # 绘制卡牌编号
         self.number_font_size = int(20 * size_ratio)
@@ -244,10 +244,10 @@ class Config_Magic(Config):
         self.name_rect_left = int(60 * size_ratio)
         self.name_rect_top = int(10 * size_ratio)
         self.name_rect_radius = int(10 * size_ratio)
-        self.name_rect_fill = (255, 195, 0)
+        self.name_rect_fill = (250, 250, 250)
         self.name_text_to_left = int(90 * size_ratio)
         self.name_text_left_compensation = 5
-        self.name_rect_outline_color = (255, 255, 255)
+        self.name_rect_outline_color = (135, 135, 135)
         self.name_rect_outline_width = int(3 * size_ratio)
         self.name_text_font_color = (0, 0, 0)
         self.name_category_width = int(80 * size_ratio)
@@ -264,42 +264,28 @@ class Config_Magic(Config):
         self.cost_rect_left = int(10 * size_ratio)
         self.cost_rect_height = int(50 * size_ratio)
         self.cost_rect_radius = int(25 * size_ratio)
-        self.cost_rect_fill = (255, 195, 0)
-        self.cost_rect_outline_color = (255, 255, 255)
+        self.cost_rect_fill = (250, 250, 250)
+        self.cost_rect_outline_color = (135, 135, 135)
         self.cost_rect_outline_width = int(3 * size_ratio)
-        # 中央代价
-        self.expense_font_size = int(30 * size_ratio)
-        self.expense_font = "ShareTechMono-Regular.ttf"
-        self.expense_category_width = int(30 * size_ratio)
-        self.expense_font_compensation = 2
-        self.expense_font_color = (0, 0, 0)
-        self.expense_padding = int(5 * size_ratio)
-        self.expense_rect_top = int(530 * size_ratio)
-        self.expense_rect_right = int(620 * size_ratio)
-        self.expense_rect_height = int(50 * size_ratio)
-        self.expense_rect_radius = int(25 * size_ratio)
-        self.expense_rect_fill = (255, 195, 0)
-        self.expense_rect_outline_color = (255, 255, 255)
-        self.expense_rect_outline_width = int(3 * size_ratio)
         # 类别logo
         self.type_logo_width = int(30 * size_ratio)
         self.type_logo_left = int(50 * size_ratio)
         self.type_logo_to_block_top = int(18 * size_ratio)
         # 标签
-        self.tag_font = "NotoSerifSC-Medium.ttf"
+        self.tag_font = "LXGWWenKaiMono-Regular.ttf"
         self.tag_font_size = int(24 * size_ratio)
         self.tag_font_color = (0, 0, 0)
         self.tag_text_left = int((50 + 40) * size_ratio)
         self.tag_text_to_block_top = int(15 * size_ratio)
         # 卡牌描述
-        self.discription_font = "NotoSerifSC-Medium.ttf"
+        self.discription_font = "LXGWWenKaiMono-Regular.ttf"
         self.discription_font_size = int(24 * size_ratio)
         self.discription_font_color = (0, 0, 0)
         self.discription_text_left = int(50 * size_ratio)
         self.discription_text_to_block_top = int(55 * size_ratio)
         self.discription_line_spacing = int(10 * size_ratio)
         # 卡牌引言
-        self.quote_font = "NotoSerifSC-Medium.ttf"
+        self.quote_font = "LXGWWenKaiMono-Regular.ttf"
         self.quote_font_size = int(20 * size_ratio)
         self.quote_font_color = (32, 32, 32)
         self.quote_text_left = int(100 * size_ratio)
@@ -316,8 +302,8 @@ class Config_Magic(Config):
         self.gain_rect_right = int(620 * size_ratio)
         self.gain_rect_height = int(50 * size_ratio)
         self.gain_rect_radius = int(25 * size_ratio)
-        self.gain_rect_fill = (255, 195, 0)
-        self.gain_rect_outline_color = (255, 255, 255)
+        self.gain_rect_fill = (250, 250, 250)
+        self.gain_rect_outline_color = (135, 135, 135)
         self.gain_rect_outline_width = int(3 * size_ratio)
         # 中央代价
         self.expense_font_size = int(30 * size_ratio)
@@ -330,8 +316,8 @@ class Config_Magic(Config):
         self.expense_rect_right = int(580 * size_ratio)
         self.expense_rect_height = int(50 * size_ratio)
         self.expense_rect_radius = int(25 * size_ratio)
-        self.expense_rect_fill = (255, 195, 0)
-        self.expense_rect_outline_color = (255, 255, 255)
+        self.expense_rect_fill = (250, 250, 250)
+        self.expense_rect_outline_color = (135, 135, 135)
         self.expense_rect_outline_width = int(3 * size_ratio)
         # 底部生命
         self.life_font_size = int(30 * size_ratio)
@@ -344,8 +330,8 @@ class Config_Magic(Config):
         self.life_rect_left = int(10 * size_ratio)
         self.life_rect_height = int(50 * size_ratio)
         self.life_rect_radius = int(25 * size_ratio)
-        self.life_rect_fill = (255, 195, 0)
-        self.life_rect_outline_color = (255, 255, 255)
+        self.life_rect_fill = (250, 250, 250)
+        self.life_rect_outline_color = (135, 135, 135)
         self.life_rect_outline_width = int(3 * size_ratio)
         # 底部攻击
         self.attack_font_size = int(30 * size_ratio)
@@ -358,8 +344,8 @@ class Config_Magic(Config):
         # self.life_rect_left = ??? we will calculate this in the process
         self.attack_rect_height = int(50 * size_ratio)
         self.attack_rect_radius = int(25 * size_ratio)
-        self.attack_rect_fill = (255, 195, 0)
-        self.attack_rect_outline_color = (255, 255, 255)
+        self.attack_rect_fill = (250, 250, 250)
+        self.attack_rect_outline_color = (135, 135, 135)
         self.attack_rect_outline_width = int(3 * size_ratio)
         # 底部威力或持续时间
         self.power_or_duration_font_size = int(30 * size_ratio)
@@ -372,8 +358,8 @@ class Config_Magic(Config):
         self.power_or_duration_rect_right = int(620 * size_ratio)
         self.power_or_duration_rect_height = int(50 * size_ratio)
         self.power_or_duration_rect_radius = int(25 * size_ratio)
-        self.power_or_duration_rect_fill = (255, 195, 0)
-        self.power_or_duration_rect_outline_color = (255, 255, 255)
+        self.power_or_duration_rect_fill = (250, 250, 250)
+        self.power_or_duration_rect_outline_color = (135, 135, 135)
         self.power_or_duration_rect_outline_width = int(3 * size_ratio)
         # 绘制卡牌编号
         self.number_font_size = int(20 * size_ratio)

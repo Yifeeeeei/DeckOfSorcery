@@ -1,7 +1,6 @@
 import PIL.Image
 import PIL.ImageDraw
 import PIL.ImageFont
-import textwrap
 import os
 
 from config import Config
@@ -36,6 +35,29 @@ class CardMaker:
         else:
             print("invalid chi encounterd: " + chi)
             return None
+
+    def text_wrap(self, text, width):
+        characters_that_takes_one_space = (
+            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+            + ".,:;!? "
+            + "[]{}()<>|/\\"
+            + "'\""
+        )
+        width = width * 2
+        result = []
+        current_line = ""
+        current_length_count = 0
+        for character in text:
+            length_taken = 1 if character in characters_that_takes_one_space else 2
+            if current_length_count + length_taken > width:
+                result.append(current_line)
+                current_line = ""
+                current_length_count = 0
+            current_line += character
+            current_length_count += length_taken
+        if current_line != "":
+            result.append(current_line)
+        return result
 
     def adjust_image(self, image, target_width_and_height):
         width, height = image.size
@@ -471,7 +493,7 @@ class CardMaker:
         discription_textwrap_width = int(
             discription_textwrap_width_pixel / discription_font.getsize("标")[0]
         )
-        discription_wrapped_text = textwrap.wrap(
+        discription_wrapped_text = self.text_wrap(
             card_info.description, width=discription_textwrap_width
         )
         discription_text_height = discription_font.getsize("标")[1]
@@ -486,7 +508,7 @@ class CardMaker:
         quote_textwrap_width = int(
             quote_textwrap_width_pixel / quote_font.getsize("标")[0]
         )
-        quote_wrapped_text = textwrap.wrap(card_info.quote, width=quote_textwrap_width)
+        quote_wrapped_text = self.text_wrap(card_info.quote, width=quote_textwrap_width)
         quote_text_height = quote_font.getsize("标")[1]
         quote_height = quote_line_spacing + (
             quote_text_height + quote_line_spacing
@@ -522,7 +544,7 @@ class CardMaker:
             discription_textwrap_width = int(
                 discription_textwrap_width_pixel / discription_font.getsize("标")[0]
             )
-            discription_wrapped_text = textwrap.wrap(
+            discription_wrapped_text = self.text_wrap(
                 card_info.description, width=discription_textwrap_width
             )
             discription_text_height = discription_font.getsize("标")[1]
@@ -537,7 +559,7 @@ class CardMaker:
             quote_textwrap_width = int(
                 quote_textwrap_width_pixel / quote_font.getsize("标")[0]
             )
-            quote_wrapped_text = textwrap.wrap(
+            quote_wrapped_text = self.text_wrap(
                 card_info.quote, width=quote_textwrap_width
             )
             quote_text_height = quote_font.getsize("标")[1]
