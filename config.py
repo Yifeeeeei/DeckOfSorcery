@@ -106,7 +106,7 @@ class Config_YuGiOh(Config):
         # 类别logo
         self.type_logo_width = int(30 * size_ratio)
         self.type_logo_left = int(50 * size_ratio)
-        self.type_logo_to_block_top = int(18 * size_ratio)
+        self.type_logo_to_block_top = int(15 * size_ratio)
         # 标签
         self.tag_font = "LXGWWenKaiMono-Regular.ttf"
         self.tag_font_size = int(24 * size_ratio)
@@ -121,7 +121,7 @@ class Config_YuGiOh(Config):
         self.discription_text_to_block_top = int(55 * size_ratio)
         self.discription_line_spacing = int(10 * size_ratio)
         # 卡牌引言
-        self.quote_font = "LXGWWenKaiMono-Regular.ttf"
+        self.quote_font = "LXGWWenKaiMono-Light.ttf"
         self.quote_font_size = int(20 * size_ratio)
         self.quote_font_color = (32, 32, 32)
         self.quote_text_left = int(100 * size_ratio)
@@ -270,7 +270,7 @@ class Config_Magic(Config):
         # 类别logo
         self.type_logo_width = int(30 * size_ratio)
         self.type_logo_left = int(50 * size_ratio)
-        self.type_logo_to_block_top = int(18 * size_ratio)
+        self.type_logo_to_block_top = int(15 * size_ratio)
         # 标签
         self.tag_font = "LXGWWenKaiMono-Regular.ttf"
         self.tag_font_size = int(24 * size_ratio)
@@ -285,7 +285,7 @@ class Config_Magic(Config):
         self.discription_text_to_block_top = int(55 * size_ratio)
         self.discription_line_spacing = int(10 * size_ratio)
         # 卡牌引言
-        self.quote_font = "LXGWWenKaiMono-Regular.ttf"
+        self.quote_font = "LXGWWenKaiMono-Light.ttf"
         self.quote_font_size = int(20 * size_ratio)
         self.quote_font_color = (32, 32, 32)
         self.quote_text_left = int(100 * size_ratio)
