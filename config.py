@@ -48,6 +48,10 @@ class Config_YuGiOh(Config):
             "\\气": os.path.join(self.general_path, "ele_air"),
             "\\地": os.path.join(self.general_path, "ele_earth"),
             "\\?": os.path.join(self.general_path, "ele_none"),
+            "\\血": os.path.join(self.general_path, "life"),
+            "\\攻": os.path.join(self.general_path, "attack"),
+            "\\威": os.path.join(self.general_path, "power"),
+            "\\持": os.path.join(self.general_path, "duration"),
         }
         # 卡片
         self.card_width = int(590 * size_ratio)
@@ -239,6 +243,10 @@ class Config_Magic(Config):
             "\\气": os.path.join(self.general_path, "ele_air"),
             "\\地": os.path.join(self.general_path, "ele_earth"),
             "\\?": os.path.join(self.general_path, "ele_none"),
+            "\\血": os.path.join(self.general_path, "life"),
+            "\\攻": os.path.join(self.general_path, "attack"),
+            "\\威": os.path.join(self.general_path, "power"),
+            "\\持": os.path.join(self.general_path, "duration"),
         }
         # 卡片
         self.card_width = int(630 * size_ratio)

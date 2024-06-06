@@ -40,17 +40,6 @@ class CardMaker:
     def text_wrap_and_placeholder_replacement(self, text, width, font):
         # this function will return two things, the wrapped text and the locations of the placeholders for further rendering
 
-        elem_placeholders = set(
-            [
-                "\\?",
-                "\\光",
-                "\\暗",
-                "\\火",
-                "\\水",
-                "\\气",
-                "\\地",
-            ]
-        )
         result = []
         current_line = ""
         current_length_count = 0
@@ -61,7 +50,7 @@ class CardMaker:
             # if it is a placeholder
             record_place_holder = None
             if character == "\\":
-                if text[index : index + 2] in elem_placeholders:
+                if text[index : index + 2] in self.config.placeholder_to_image.keys():
                     record_place_holder = text[index : index + 2]
                     character = (
                         self.default_placeholder
