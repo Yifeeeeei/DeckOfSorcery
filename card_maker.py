@@ -867,6 +867,7 @@ class CardMaker:
                 font,
                 self.config.life_font_color,
             )
+
             # return base_image
 
         if card_info.attack < 0:
@@ -891,7 +892,9 @@ class CardMaker:
                 left_pointer = self.config.life_rect_left
             else:
                 left_pointer += (
-                    self.config.life_rect_left + 3 * self.config.life_padding
+                    self.config.life_rect_left
+                    + self.config.life_padding
+                    + font.getsize(str(card_info.life))[0]
                 )
 
             left = left_pointer
