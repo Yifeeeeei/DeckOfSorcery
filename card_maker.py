@@ -16,6 +16,7 @@ from card_info import Elements, CardInfo
 class CardMaker:
     def __init__(self, config: Config) -> None:
         self.config = config
+        self.default_placeholder = "\u00A0"
 
     def translator(self, chi):
         if chi == "光":
@@ -36,28 +37,54 @@ class CardMaker:
             print("invalid chi encounterd: " + chi)
             return None
 
-    def text_wrap(self, text, width):
-        characters_that_takes_one_space = (
-            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-            + ".,:;!? "
-            + "[]{}()<>|/\\"
-            + "'\""
+    def text_wrap_and_placeholder_replacement(self, text, width, font):
+        # this function will return two things, the wrapped text and the locations of the placeholders for further rendering
+
+        elem_placeholders = set(
+            [
+                "\\?",
+                "\\光",
+                "\\暗",
+                "\\火",
+                "\\水",
+                "\\气",
+                "\\地",
+            ]
         )
-        width = width * 2
         result = []
         current_line = ""
         current_length_count = 0
-        for character in text:
-            length_taken = 1 if character in characters_that_takes_one_space else 2
+        place_holder_locations = []  # (category, row, col)
+        index = 0
+        while index < len(text):
+            character = text[index]
+            # if it is a placeholder
+            record_place_holder = None
+            if character == "\\":
+                if text[index : index + 2] in elem_placeholders:
+                    record_place_holder = text[index : index + 2]
+                    character = (
+                        self.default_placeholder * 2
+                    )  # use \u00A0 as a placeholder
+
+                    index += 1  # skip the next character
+
+            length_taken = font.getsize(character)[0]
             if current_length_count + length_taken > width:
                 result.append(current_line)
                 current_line = ""
                 current_length_count = 0
+            if record_place_holder is not None:
+                place_holder_locations.append(
+                    (record_place_holder, len(result), current_length_count)
+                )
             current_line += character
             current_length_count += length_taken
+
+            index += 1
         if current_line != "":
             result.append(current_line)
-        return result
+        return result, place_holder_locations
 
     def adjust_image(self, image, target_width_and_height):
         width, height = image.size
@@ -528,13 +555,15 @@ class CardMaker:
         discription_textwrap_width_pixel = (
             self.config.card_width - self.config.discription_text_left * 2
         )
-        discription_textwrap_width = int(
-            discription_textwrap_width_pixel / discription_font.getsize("标")[0]
+        discription_textwrap_width = int(discription_textwrap_width_pixel)
+        discription_wrapped_text, placeholder_locations = (
+            self.text_wrap_and_placeholder_replacement(
+                card_info.description,
+                width=discription_textwrap_width,
+                font=discription_font,
+            )
         )
-        discription_wrapped_text = self.text_wrap(
-            card_info.description, width=discription_textwrap_width
-        )
-        discription_text_height = discription_font.getsize("标")[1]
+        discription_text_height = discription_font.getsize("I")[1]
         discription_height = discription_line_spacing + (
             discription_text_height + discription_line_spacing
         ) * len(discription_wrapped_text)
@@ -543,11 +572,11 @@ class CardMaker:
         quote_textwrap_width_pixel = (
             self.config.card_width - self.config.quote_text_left * 2
         )
-        quote_textwrap_width = int(
-            quote_textwrap_width_pixel / quote_font.getsize("标")[0]
+        quote_textwrap_width = int(quote_textwrap_width_pixel)
+        quote_wrapped_text, _ = self.text_wrap_and_placeholder_replacement(
+            card_info.quote, width=quote_textwrap_width, font=quote_font
         )
-        quote_wrapped_text = self.text_wrap(card_info.quote, width=quote_textwrap_width)
-        quote_text_height = quote_font.getsize("标")[1]
+        quote_text_height = quote_font.getsize("I")[1]
         quote_height = quote_line_spacing + (
             quote_text_height + quote_line_spacing
         ) * len(quote_wrapped_text)
@@ -579,13 +608,15 @@ class CardMaker:
             discription_textwrap_width_pixel = (
                 self.config.card_width - self.config.discription_text_left * 2
             )
-            discription_textwrap_width = int(
-                discription_textwrap_width_pixel / discription_font.getsize("标")[0]
+            discription_textwrap_width = int(discription_textwrap_width_pixel)
+            discription_wrapped_text, placeholder_locations = (
+                self.text_wrap_and_placeholder_replacement(
+                    card_info.description,
+                    width=discription_textwrap_width,
+                    font=discription_font,
+                )
             )
-            discription_wrapped_text = self.text_wrap(
-                card_info.description, width=discription_textwrap_width
-            )
-            discription_text_height = discription_font.getsize("标")[1]
+            discription_text_height = discription_font.getsize("I")[1]
             discription_height = discription_line_spacing + (
                 discription_text_height + discription_line_spacing
             ) * len(discription_wrapped_text)
@@ -594,13 +625,11 @@ class CardMaker:
             quote_textwrap_width_pixel = (
                 self.config.card_width - self.config.quote_text_left * 2
             )
-            quote_textwrap_width = int(
-                quote_textwrap_width_pixel / quote_font.getsize("标")[0]
+            quote_textwrap_width = int(quote_textwrap_width_pixel)
+            quote_wrapped_text, _ = self.text_wrap_and_placeholder_replacement(
+                card_info.quote, width=quote_textwrap_width, font=quote_font
             )
-            quote_wrapped_text = self.text_wrap(
-                card_info.quote, width=quote_textwrap_width
-            )
-            quote_text_height = quote_font.getsize("标")[1]
+            quote_text_height = quote_font.getsize("I")[1]
             quote_height = quote_line_spacing + (
                 quote_text_height + quote_line_spacing
             ) * len(quote_wrapped_text)
@@ -631,6 +660,32 @@ class CardMaker:
             discription_top_pointer += (
                 discription_line_spacing + discription_text_height
             )
+        # draw place holders in descriptions
+        for place_holder in placeholder_locations:
+            place_holder_name, row, col = place_holder
+            place_holder_image = self.get_image_without_extension(
+                self.config.placeholder_to_image[place_holder_name]
+            )
+            w = discription_font.getsize(2 * self.default_placeholder)[0]
+            h = discription_font.getsize(2 * self.default_placeholder)[1]
+            image_square_width = min(w, h)
+            left_compensation = (max(w, h) - image_square_width) // 2
+            x = self.config.discription_text_left + col + left_compensation
+            y = (
+                self.config.discription_text_to_block_top
+                + self.config.drawing_to_upper
+                + self.config.drawing_height
+                + row * (discription_text_height + discription_line_spacing)
+                + 3
+            )
+            # same as font size
+
+            place_holder_image = self.adjust_image(
+                place_holder_image,
+                (image_square_width, image_square_width),
+            )
+            base_image.paste(place_holder_image, (x, y), mask=place_holder_image)
+
         # draw quote
         quote_bottom_pointer = (
             self.config.bottom_block_height
