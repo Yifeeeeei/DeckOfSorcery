@@ -16,7 +16,7 @@ from card_info import Elements, CardInfo
 class CardMaker:
     def __init__(self, config: Config) -> None:
         self.config = config
-        self.default_placeholder = "\u00A0"
+        self.default_placeholder = "\u00A0\u00A0"
 
     def translator(self, chi):
         if chi == "光":
@@ -64,8 +64,8 @@ class CardMaker:
                 if text[index : index + 2] in elem_placeholders:
                     record_place_holder = text[index : index + 2]
                     character = (
-                        self.default_placeholder * 2
-                    )  # use \u00A0 as a placeholder
+                        self.default_placeholder
+                    )  # use 2*\u00A0 as a placeholder
 
                     index += 1  # skip the next character
 
@@ -666,8 +666,8 @@ class CardMaker:
             place_holder_image = self.get_image_without_extension(
                 self.config.placeholder_to_image[place_holder_name]
             )
-            w = discription_font.getsize(2 * self.default_placeholder)[0]
-            h = discription_font.getsize(2 * self.default_placeholder)[1]
+            w = discription_font.getsize(self.default_placeholder)[0]
+            h = discription_font.getsize(self.default_placeholder)[1]
             image_square_width = min(w, h)
             left_compensation = (max(w, h) - image_square_width) // 2
             x = self.config.discription_text_left + col + left_compensation

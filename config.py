@@ -231,6 +231,15 @@ class Config_Magic(Config):
             "地": "back_earth",
             "?": "back_none",
         }
+        self.placeholder_to_image = {
+            "\\光": os.path.join(self.general_path, "ele_light"),
+            "\\暗": os.path.join(self.general_path, "ele_dark"),
+            "\\水": os.path.join(self.general_path, "ele_water"),
+            "\\火": os.path.join(self.general_path, "ele_fire"),
+            "\\气": os.path.join(self.general_path, "ele_air"),
+            "\\地": os.path.join(self.general_path, "ele_earth"),
+            "\\?": os.path.join(self.general_path, "ele_none"),
+        }
         # 卡片
         self.card_width = int(630 * size_ratio)
         self.card_height = int(880 * size_ratio)
