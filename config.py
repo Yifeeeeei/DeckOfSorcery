@@ -29,7 +29,7 @@ class Config_YuGiOh(Config):
             "火": "ele_fire",
             "气": "ele_air",
             "地": "ele_earth",
-            "?": "ele_none",
+            "无": "ele_none",
         }
         self.element_back = {
             "光": "back_light",
@@ -38,7 +38,7 @@ class Config_YuGiOh(Config):
             "火": "back_fire",
             "气": "back_air",
             "地": "back_earth",
-            "?": "back_none",
+            "无": "back_none",
         }
         self.placeholder_to_image = {
             "\\光": os.path.join(self.general_path, "ele_light"),
@@ -47,7 +47,7 @@ class Config_YuGiOh(Config):
             "\\火": os.path.join(self.general_path, "ele_fire"),
             "\\气": os.path.join(self.general_path, "ele_air"),
             "\\地": os.path.join(self.general_path, "ele_earth"),
-            "\\?": os.path.join(self.general_path, "ele_none"),
+            "\\无": os.path.join(self.general_path, "ele_none"),
             "\\血": os.path.join(self.general_path, "life"),
             "\\攻": os.path.join(self.general_path, "attack"),
             "\\威": os.path.join(self.general_path, "power"),
@@ -224,7 +224,7 @@ class Config_Magic(Config):
             "火": "ele_fire",
             "气": "ele_air",
             "地": "ele_earth",
-            "?": "ele_none",
+            "无": "ele_none",
         }
         self.element_back = {
             "光": "back_light",
@@ -233,7 +233,7 @@ class Config_Magic(Config):
             "火": "back_fire",
             "气": "back_air",
             "地": "back_earth",
-            "?": "back_none",
+            "无": "back_none",
         }
         self.placeholder_to_image = {
             "\\光": os.path.join(self.general_path, "ele_light"),
@@ -242,7 +242,7 @@ class Config_Magic(Config):
             "\\火": os.path.join(self.general_path, "ele_fire"),
             "\\气": os.path.join(self.general_path, "ele_air"),
             "\\地": os.path.join(self.general_path, "ele_earth"),
-            "\\?": os.path.join(self.general_path, "ele_none"),
+            "\\无": os.path.join(self.general_path, "ele_none"),
             "\\血": os.path.join(self.general_path, "life"),
             "\\攻": os.path.join(self.general_path, "attack"),
             "\\威": os.path.join(self.general_path, "power"),

@@ -9,8 +9,8 @@ from card_maker import CardMaker, CardInfo, Elements
 class MassProducerXlsx:
     def __init__(self, mass_producer_params_path: str):
         if mass_producer_params_path is None:
-            print("No mass_producer_params_path specified, be careful!")
-            self.all_elements = ["水", "火", "光", "暗", "气", "地", "?"]
+            print("No mass_producer_params_path specified!")
+            self.all_elements = ["水", "火", "光", "暗", "气", "地", "无"]
             return
         self.mass_producer_params = json.load(
             open(mass_producer_params_path, "r", encoding="utf-8")
@@ -25,7 +25,7 @@ class MassProducerXlsx:
         self.card_maker_config = config
         self.card_maker_config.general_path = self.mass_producer_params["general_path"]
         self.card_maker_config.font_path = self.mass_producer_params["font_path"]
-        self.all_elements = ["水", "火", "光", "暗", "气", "地", "?"]
+        self.all_elements = ["水", "火", "光", "暗", "气", "地", "无"]
         self.error_log = []
         self.all_card_infos = []
 
@@ -187,16 +187,11 @@ class MassProducerXlsx:
         return card_info
 
     def category_to_output_dir_name(self, category):
-        if category == "?":
-            return "无"
-        else:
-            return category
+
+        return category
 
     def output_dir_name_to_category(self, output_dir_name):
-        if output_dir_name == "无":
-            return "?"
-        else:
-            return output_dir_name
+        return output_dir_name
 
     def get_output_path(self, card_info):
         return os.path.join(
@@ -212,7 +207,7 @@ class MassProducerXlsx:
         dict["number"] = card_info.number
         dict["type"] = card_info.type  # 生物、技能、道具三选一
         dict["name"] = card_info.name
-        dict["category"] = card_info.category  # 火水地光暗?
+        dict["category"] = card_info.category  # 火水地光暗无
 
         dict["tag"] = card_info.tag  # 说明，传奇异兽、道具、咒术、法术之类的名词
         dict["description"] = card_info.description  # 描述

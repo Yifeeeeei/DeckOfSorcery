@@ -6,7 +6,7 @@
 class Elements:
     def __init__(self, elements_dict) -> None:
         self.elements_dict = elements_dict
-        all_elements = ["光", "暗", "火", "水", "地", "气", "?"]
+        all_elements = ["光", "暗", "火", "水", "地", "气", "无"]
         for ele in all_elements:
             if ele not in elements_dict:
                 elements_dict[ele] = 0
@@ -39,7 +39,7 @@ class CardInfo:
         self.number = 0
         self.type = ""  # 生物、技能、道具、英雄
         self.name = ""
-        self.category = ""  # 火水地光暗?
+        self.category = ""  # 火水地光暗无
 
         self.tag = ""  # 说明，传奇异兽、道具、咒术、法术之类的名词
         self.description = ""  # 描述

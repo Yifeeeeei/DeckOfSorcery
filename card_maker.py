@@ -288,7 +288,7 @@ class CardMaker:
             return (253, 227, 255)
         elif card_info.category == "地":
             return (233, 203, 177)
-        elif card_info.category == "?":
+        elif card_info.category == "无":
             return (250, 250, 250)
         else:
             print("invalid category: " + card_info.category)
@@ -307,7 +307,7 @@ class CardMaker:
             return (0, 0, 0)
         elif card_info.category == "地":
             return (0, 0, 0)
-        elif card_info.category == "?":
+        elif card_info.category == "无":
             return (0, 0, 0)
         else:
             print("invalid category: " + card_info.category)
