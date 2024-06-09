@@ -403,7 +403,7 @@ class CardMaker:
             base_image,
             (rect_left, rect_top, rect_right, rect_bottom),
             self.config.cost_rect_radius,
-            self.get_rect_fill(card_info),
+            self.get_rect_fill_color(card_info),
             self.config.cost_rect_outline_color,
             self.config.cost_rect_outline_width,
         )
