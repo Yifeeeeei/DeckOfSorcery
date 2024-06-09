@@ -877,7 +877,7 @@ class CardMaker:
                 + self.config.attack_icon_width
             )
             # adjust left pointer
-            if card_info.life == 0:
+            if card_info.life < 0:
                 left_pointer = self.config.life_rect_left
             else:
                 left_pointer += (
