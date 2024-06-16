@@ -173,7 +173,7 @@ class MassProducerXlsx:
             # 空行
             return None
         # 版本号
-        card_info.version_number = card_info.number[3]
+        card_info.version_number = card_info.number[3:5]
 
         # 版本名
         card_info.version_name = version_name
