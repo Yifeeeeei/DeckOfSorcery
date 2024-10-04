@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="./style/style.css" />
+    </head>
+
+    <body>
+        <div id="base" display="none">
+            <div id="background_img"></div>
+            <div id="background_shader"></div>
+            <div id="title">
+                <strong>巫 师 牌<br />Deck of Sorcery</strong>
+            </div>
+            <div id="markdown-content"></div>
+            <div id="base-menu" class="menu"></div>
+        </div>
+        <div id="frame" display="block">
+            <iframe src="htmls/1.html" frameborder="0" id="frame"></iframe>
+            <div class="menu">
+                <ul class="menu-item" onclick="backToBase()">
+                    返回
+                </ul>
+            </div>
+        </div>
+        <script src="./script/main.js"></script>
+    </body>
+</html>
