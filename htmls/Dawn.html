@@ -1,0 +1,594 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext);
+
+/* cyrillic-ext */
+/* cyrillic */
+:root {
+	--window-border: none;
+	--typora-center-window-title: true;
+	--active-file-bg-color: #f3f3f3;
+	--bg-color: #fcfcfc;
+	--control-text-color: #777;
+}
+
+.mac-seamless-mode #typora-sidebar {
+	top: 20px;
+	padding-top: 0;
+	height: auto;
+}
+
+html,
+body,
+#write{
+	background: #fcfcfc;
+	background: var(--bg-color);
+	font-family: 'TeXGyreAdventor', "Century Gothic", "Didact Gothic", "Yu Gothic", 'Segoe UI Emoji', sans-serif;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #111;
+	font-family: 'TeXGyreAdventor', "Century Gothic", "Didact Gothic", "Yu Gothic", sans-serif;
+}
+
+html {
+	font-size:16px;
+}
+
+#write {
+	max-width: 914px;
+	text-align: justify;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+#write>h1:first-child {
+	margin-top: 2.75rem;
+}
+#write>h2:first-child {
+	margin-top: 1.75rem;
+}
+#write>h3:first-child {
+	margin-top: 1rem;
+}
+#write>h4:first-child {
+	margin-top: 0.5rem;
+}
+h1 {
+	font-weight: normal;
+	line-height: 4rem;
+	margin: 0 0 1.75rem;
+	padding: 20px 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 4rem;
+}
+h2 {
+	font-weight: normal;
+	line-height: 3rem;
+	margin: 0 0 1.9375rem;
+	padding: 0 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 3rem
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-weight: normal;
+}
+h5 {
+	font-size: 1.125rem;
+	font-weight: normal;
+}
+h6 {
+	font-size: 1rem;
+	font-weight: bold;
+}
+p {
+	color: #111;
+	font-size: 1rem;
+	line-height: 1.75rem;
+	margin: 0 0 1.25rem;
+}
+#write>h3.md-focus:before {
+	left: -1.875rem;
+	top: 0.5rem;
+	padding: 2px;
+}
+#write>h4.md-focus:before {
+	left: -1.875rem;
+	top: 0.3125rem;
+	padding: 2px;
+}
+#write>h5.md-focus:before {
+	left: -1.875rem;
+	top: 0.25rem;
+	padding: 2px;
+}
+#write>h6.md-focus:before {
+	left: -1.875rem;
+	top: .125rem;
+	padding: 2px;
+}
+@media screen and (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.250rem;
+	}
+	.h5,
+	h5 {
+		font-size: 1.150rem;
+	}
+	.h6,
+	h6 {
+		font-size: 1rem;
+	}
+}
+a,
+.md-def-url {
+	color: #990000;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+table {
+	margin-bottom: 20px
+}
+table th,
+table td {
+	padding: 8px;
+	line-height: 1.25rem;
+	vertical-align: top;
+	border-top: 1px solid #ddd
+}
+table th {
+	font-weight: bold
+}
+table thead th {
+	vertical-align: bottom
+}
+table caption+thead tr:first-child th,
+table caption+thead tr:first-child td,
+table colgroup+thead tr:first-child th,
+table colgroup+thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+	border-top: 0
+}
+table tbody+tbody {
+	border-top: 2px solid #ddd
+}
+code, .md-fences {
+	padding: .5em;
+	/*background: #f0f0f0;*/
+	border: 1px solid #ccc;
+	padding: .1em;
+	font-size: 0.9em;
+	margin-left: 0.2em;
+	margin-right: 0.2em;
+}
+.md-fences {
+	margin: 0 0 20px;
+	font-size: 1em;
+	padding: 0.3em 1em;
+  	padding-top: 0.4em;
+}
+.task-list{
+	padding-left: 0;
+}
+
+.task-list-item {
+	padding-left:2.125rem;
+}
+
+input {
+	border-style: ridge;
+}
+
+.task-list-item input {
+	top: 3px;
+}
+
+.md-task-list-item input {
+	margin-left: -1.5em;
+}
+
+.task-list-item input:before {
+	content: "";
+	display: inline-block;
+	width: 1rem;
+	height: 1rem;
+	vertical-align: middle;
+	text-align: center;
+	border: 1px solid gray;
+	background-color: #fdfdfd;
+	margin-left: 0;
+	-webkit-appearance: none;
+	margin-top: -1rem;
+}
+
+.typora-node .task-list-item input:before {
+	top: 0.3ex;
+	position: absolute;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before{
+	content: '\25FC';
+	/*◘*/
+	font-size: 0.8125rem;
+	line-height: 0.9375rem;
+}
+
+/* Chrome 29+ */
+.task-list-item input:before {
+	margin-top: -0.2rem;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before {
+	margin-top: -0.2rem;
+}
+
+.html-for-mac .task-list-item input:checked:before,
+.html-for-mac .task-list-item input[checked]:before {
+	margin-top: -0.8rem;
+}
+
+blockquote {
+	margin: 0 0 1.11111rem;
+	padding: 0.5rem 1.11111rem 0 1.05556rem;
+	border-left: 1px solid gray;
+}
+blockquote,
+blockquote p {
+	line-height: 1.6;
+	color: #6f6f6f;
+}
+#write pre.md-meta-block {
+	min-height: 30px;
+	background: #f8f8f8;
+	padding: 1.5em;
+	font-weight: 300;
+	font-size: 1em;
+	padding-bottom: 1.5em;
+	padding-top: 3em;
+    margin-top: -1.5em;
+	color: #999;
+	
+	width: 100vw;
+	max-width: calc(100% + 60px);
+	margin-left: -30px;
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+}
+.MathJax_Display {
+	font-size: 0.9em;
+	margin-top: 0.5em;
+	margin-bottom: 0;
+}
+p.mathjax-block,
+.mathjax-block {
+	padding-bottom: 0;
+}
+.mathjax-block>.code-tooltip {
+	bottom: 5px;
+	box-shadow: none;
+}
+.md-image>.md-meta {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+.md-image>img {
+	margin-top: 2px;
+}
+.md-image>.md-meta:first-of-type:before {
+	padding-left: 4px;
+}
+
+#typora-source {
+	color: #555;
+}
+
+/** ui for windows **/
+#md-searchpanel {
+    border-bottom: 1px solid #ccc;
+}
+
+#md-searchpanel .btn {
+    border: 1px solid #ccc;
+}
+
+#md-notification:before {
+	top: 14px;
+}
+
+#md-notification {
+	background: #eee;
+}
+
+.megamenu-menu-panel .btn {
+	border: 1px solid #ccc;
+}
+
+#typora-sidebar {
+	box-shadow: none;
+}
+
+.file-list-item ,
+.show-folder-name .file-list-item {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	line-height: 20px;
+}
+
+.file-list-item-summary {
+	height: 40px;
+	line-height: 20px;
+}
+
+.ty-table-edit {
+	background: #ededed;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>破晓</title>
+</head>
+<body class='typora-export typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第一章">第一章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第二章">第二章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第三章">第三章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第四章">第四章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第五章">第五章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#尾声">尾声</a></div><ul class="outline-children"></ul></li></div></div><div id='write'  class=''><h1 id='第一章'><span>第一章</span></h1><p><span>索洛城静谧的夜晚总是带着一股南部特有的温暖气息。空气中弥漫着从远方吹来的微风，夹杂着大地温润的芬芳。城中的灯火已经逐渐熄灭，偶尔能听到几声守卫换岗时的金属碰撞声。对于城中的人们来说，这样的夜晚再平常不过。然而，对于年迈的巫师伦德萨尔而言，这座南部边境的城市是他心中平静与安宁的象征，这里的生活让他满足。</span></p><p><span>尽管修习了几十年的光之法术，他从未追逐名望与权力，这使得他依然是白袍大贤者掌号使身边默默无闻的书记员。伦德萨尔喜欢这个工作，不仅能知道最新的消息，还有充足的时间私下磨练自己的技艺。掌号使理解且尊重他，也时常会叹息，如此纯粹的追求，恰恰是层层统治中最稀缺的。</span></p><p><span>今天，索洛城看似与往日无异。</span></p><p><span>&quot;伦德萨尔？&quot; 掌号使的声音从书房门外传来。这位身材高大、神情严肃的巫师一向是北方巫师盟主法罗兰克的得力助手。在索洛城驻守的这几年，他始终将这座南部城市治理得井然有序。尽管他有着高超的法力，但伦德萨尔从未见过他真正使用过力量。</span></p><p><span>“晚上好，有何贵干？”伦德萨尔低沉地回应。他将一卷厚重的记录收进自己的抽屉。这是他一贯的工作，记录巫师会议的内容，以及为掌号使整理各类文书资料。他对自己角色的认知清晰而简单：自己只是一名记录者，虽然偶尔也会被请去施展一些治疗和防护类法术，但从未涉足那些宏大的战斗与权谋之争。</span></p><p><span>掌号使推开书房的门，走了进来。他眉头紧锁，似乎对即将发生的事情充满疑虑。“命令已经下达，所有驻守巫师都必须返回北方盟城，召开紧急会议。”</span></p><p><span>伦德萨尔点了点头，他知道这件事。狄斯托德——法罗兰克最信任的干将——向所有南部驻守的巫师发出了召集令，要求他们立刻回到北方。尽管没有解释原因，但掌号使相信，这场会议一定至关重要。</span></p><p><span>“你不打算去吗？” 掌号使看着伦德萨尔，眉头微微挑起。</span></p><p><span>“严格来说，我并不是驻守的巫师。”伦德萨尔笑了笑，“我的职责是记录和整理，不是作战。”</span></p><p><span>掌号使沉思片刻，然后点头：“说的是啊。那这样也好，有你留在这里，我也比较放心。”</span></p><p><span>伦德萨尔并未感到意外。虽然他并未真正担任过守城的职责，但掌号使一向知道他在光之法术上的造诣。尽管他不愿涉足权力斗争，但当涉及到城市的安危时，伦德萨尔总是难以袖手旁观。</span></p><p><span>“放心吧，我会尽我所能。”他简短地回答，目光投向窗外的城市。虽然没有任何预兆，但他心中依旧升起一丝不安，像是远处雷云酝酿的前兆。</span></p><p><span>“保重，伦德萨尔。”掌号使拍了拍他的肩膀，然后转身离开。巫师们已经集结完毕，等待着他的带领，他们将启程返回北方。</span></p><p><span>不久之后，城门外响起了马蹄和法杖的碰撞声，驻守的巫师们依次离开了索洛城。伦德萨尔站在城墙上，默默注视着这支队伍远去的背影，直到他们彻底消失在远方的山脉之间。</span></p><p><span>夜风轻轻吹过，带来了一丝凉意。</span></p><h1 id='第二章'><span>第二章</span></h1><p><span>索洛城的夜晚逐渐加深，天空如同一块巨大的黑布，笼罩着整个城市。只有少数几座塔楼的火光在远处微微闪烁，伴随着守卫们巡逻时低声交谈的声音。城中的居民大多已经安然入睡，只有守夜的士兵们还在城墙上来回走动。</span></p><p><span>伦德萨尔坐在他的书房里，昏黄的灯光照在一卷未完成的记录上。他的笔尖在纸上移动，却感到一种异样的不安在心中徘徊。城中的一切都显得如此平静，但这份宁静却像是暴风雨前的沉寂。他停下手中的笔，走到窗边，凝视着远方的黑夜。</span></p><p><span>就在此时，一阵急促的敲门声打破了夜的寂静。</span></p><p><span>“伦德萨尔大人！紧急情况！”一名士兵的声音从门外传来，声音带着显而易见的慌乱。</span></p><p><span>伦德萨尔迅速打开了门，站在门外的是一名面色苍白的守卫，身上还穿着没有完全扣好的盔甲。“出什么事了？”他问道，心中那份不安感越发强烈。</span></p><p><span>“城外……城外出现了怪物！影子……很多影子从地底钻出来了！守卫们正在尝试抵御，但……但他们太多了！”守卫的声音里带着恐惧。</span></p><p><span>伦德萨尔的心脏猛地一沉。他跟随守卫快步走出房间，登上城墙的高处，目光扫向远方的平原。就在那一刻，他看见了恐怖的景象。</span></p><p><span>在索洛城的城墙外，成群的扭曲黑影在地面上蠕动，如同一道无形的浪潮，缓缓逼近城墙。这些黑影看不清楚具体的形状，但它们明显是活物，仿佛从地狱深处爬出来的恶魔般，散发着令人窒息的邪恶气息。它们无声无息地移动，却带着致命的危险。</span></p><p><span>“影魔……”伦德萨尔低声说出了它们的名字。</span></p><p><span>影魔，这是一种古老而危险的恶魔，由人们残缺的灵魂构成，栖息于地狱之中，但是从不主动招惹人类的领地。它们以人类的灵魂为食，能够将被它们杀死的人转化为新的影魔，加入它们的行列。传说它们惧怕光，尤其是阳光，只能在夜晚肆虐。</span></p><p><span>“快！通知所有守卫准备防御！所有人进入戒备状态！”伦德萨尔命令道，语气沉着但坚定。尽管他很久没有参与实战，但面对这样的危机，他知道自己不能再站在一旁。他转身，迅速向城中的警钟走去，敲响了那沉重的钟声。</span></p><p><span>伦德萨尔操纵起自己的法力，他需要立刻联系掌号使。法力如根须般伸展开，寻找着掌号使的存在。他们曾经无数次这样联络。但是这一次，他却不能感受到掌号使，四周一片漆黑，没有任何光明的迹象。</span></p><p><span>钟声回荡在夜空中，像是一声警告，将整个城市从沉睡中惊醒。士兵们匆忙从城中各个角落赶来，手持武器，准备抵御即将到来的入侵。</span></p><p><span>伦德萨尔站在城墙上，闭上双眼，深吸了一口气。光之法术，他已经许久没有真正施展过了。作为一名光属性的巫师，他知道自己拥有对抗影魔的最佳武器，但他也清楚，自己单独的力量不足以消灭如此庞大的敌人。他需要时间，恶魔力量的爆发，掌号使一定已经感知到了这件事，正在赶来的路上，或许狄斯托德也会一起来，这样一来防守定能成功。但在此之前，他必须带领这些普通的士兵撑住。</span></p><p><span>一阵寒意从地面升起，仿佛黑暗中的邪恶正在逼近。</span></p><p><span>影魔已经来到了城墙外，它们无声无息地涌动，像是一片浓密的黑雾。突然，其中一个影魔以极快的速度冲向城墙，一名守卫立刻举起长矛刺向它，但那黑影瞬间将他笼罩，长矛刺穿了空气。片刻后，那个守卫发出一声痛苦的惨叫，身体被黑暗吞噬，几秒钟后，他的身躯开始扭曲，变成了新的影魔。</span></p><p><span>这一幕让城墙上的其他守卫惊恐万分，他们看着曾经的战友变成敌人，士气瞬间跌入谷底。</span></p><p><span>伦德萨尔没有时间犹豫，他举起法杖，低声吟唱起古老的咒语。随着咒语的诵念，一道耀眼的光芒从他的法杖顶端迸发而出，如同一道太阳的光束，直射向涌动的黑影。那光芒所到之处，影魔纷纷发出嘶哑的尖叫声，身体迅速燃烧、扭曲，最终化为灰烬。</span></p><p><span>“集中防守！不要退缩！”伦德萨尔大声命令，守卫们在他的声音中找到了些许勇气，重新举起武器。</span></p><p><span>尽管伦德萨尔的光之法术能够暂时击退影魔，但他很快意识到，这只是短暂的胜利。黑影仍然源源不断地从地底涌出，它们的数量多得令人绝望。每当一个影魔被击败，更多的黑暗生物会从地下爬出来，填补它们的空缺。</span></p><p><span>伦德萨尔心中一紧，城中的守卫们正在以惊人的速度减少，而影魔的数量却丝毫没有减弱的迹象。</span></p><p><span>时间是伦德萨尔最缺乏的东西。他再次举起法杖，继续施展光之法术，但他感到自己的力量正在迅速消耗。如果继续这样下去，他和索洛城所有的守卫恐怕都无法熬到天亮。</span></p><h1 id='第三章'><span>第三章</span></h1><p><span>夜色如墨，索洛城的城墙在黑暗中显得异常孤立。伦德萨尔的光芒虽能暂时驱散一部分黑暗，但那无尽的影魔却仿佛永不枯竭，源源不断地从地下涌出。空气中弥漫着血腥和腐朽的气味，令人生畏。</span></p><p><span>城外，影魔的低吼声愈发狂暴，密集得宛如潮水，几乎要将索洛城淹没。每个士兵的眼中都充满了恐惧，他们不再只为城池战斗，而是在为自己有限的生命拼搏。</span></p><p><span>“不要退缩！”伦德萨尔站在城墙的最高处，声音洪亮而坚定。他的法杖发出一道又一道强烈的光束，瞬间将靠近城墙的影魔烧成灰烬。然而，这并没有削弱影魔的数量——每一个倒下的敌人，更多的黑影就会从地面下爬出，填补战友的空缺。</span></p><p><span>战斗已经持续了数个小时。最初的混乱和恐慌已经转化为麻木与绝望。士兵们用最后的力气抵挡那些冲上城墙的影魔，但人数越来越少，防线也越来越脆弱。</span></p><p><span>“他们太多了……”一名士兵喘息着，满身是血，他的手微微颤抖，几乎无法再举起武器。他的声音里带着绝望，而这绝望迅速蔓延到了周围的士兵。</span></p><p><span>“继续战斗！”伦德萨尔大声命令，但他清楚，士气正在快速崩溃。随着每一个倒下的战友，活着的人们眼中的希望也在逐渐消失。伦德萨尔并不擅长激励军队，他只是一个记录者，一个巫师，虽然拥有光之法术的力量，但面对如此规模的进攻，他也感到无能为力。</span></p><p><span>城下，一只影魔猛然跃起，扑向一个年轻的守卫。那守卫惊恐地挥舞长剑，却被影魔瞬间压倒在地，发出一声惨叫。他的身体开始迅速变形，扭曲成影魔的模样，再次加入到对城墙的进攻中。</span></p><p><span>“该死……”伦德萨尔握紧法杖，眼中充满了愤怒。他不再犹豫，一道更加强大的光芒从法杖顶端喷涌而出，笼罩了整片城墙下的区域。影魔在光芒的照射下发出刺耳的尖叫声，身体迅速燃烧，化为灰烬。</span></p><p><span>“好……太好了！”几名士兵看到影魔被驱散，暂时松了一口气。</span></p><p><span>但伦德萨尔并没有放松警惕。他知道这只是暂时的胜利。他的魔力正在迅速消耗，光之法术虽然能够对影魔造成巨大的伤害，但伦德萨尔并非无穷无尽的能量源。他必须节约力量，等待掌号使的回归。</span></p><p><span>他抬头望向远方的天空，北方依旧一片黑暗，毫无动静。</span></p><p><span>“为什么……他们还没回来？”伦德萨尔心中隐隐有些不安。他发出的求援消息早该得到回应，可至今为止，一切都寂静如初。伦德萨尔不禁开始怀疑：掌号使和他的巫师团队是否真的能赶得上？是否已经在路上，还是遇到了什么不可预知的阻碍？</span></p><p><span>就在这时，城墙另一侧传来一阵凄厉的惨叫。</span></p><p><span>“那边撑不住了！”有人高喊。伦德萨尔迅速转身，看到更多的影魔正从西侧城墙爬上。那里驻守的士兵已经所剩无几，许多人已经倒在黑暗中。伦德萨尔没有犹豫，再次举起法杖，一道光柱直冲天际，瞬间照亮了西侧的城墙，驱散了逼近的影魔。</span></p><p><span>但他知道，自己不可能一直这样支援每一个破碎的防线。他一个人的力量，无法同时守护整座城市。</span></p><p><span>“如果继续这样下去……”伦德萨尔的心开始沉重起来。他预感到，影魔的攻势不仅仅是为了攻下索洛城，他们正在试图彻底吞噬这片大地。那些被转化成影魔的守卫，已经逐渐失去人性，化作了彻底的敌人。每一位倒下的守卫，都意味着城中再少一位战士，却多了一个敌人。</span></p><p><span>天亮之前，这座城市恐怕会彻底沦陷。</span></p><p><span>伦德萨尔望向天边，感觉到时间在飞快流逝。太阳依然遥远，仿佛世界的另一端被光明笼罩，而这片土地则被黑暗彻底占据。</span></p><p><span>“我们需要支援……”他喃喃自语。伦德萨尔开始明白，依靠掌号使的回援已经变得不切实际。他必须依靠自己找到新的办法。可是，还有什么办法能在这无尽的黑暗中找到胜利的希望？</span></p><p><span>他的目光落在手中的法杖上。光之法术一直以来都与他同在，光明是他操控的力量——也是影魔唯一的克星。</span></p><p><span>“我们必须坚持住……”伦德萨尔对自己低声说道。</span></p><h1 id='第四章'><span>第四章</span></h1><p><span>黑夜笼罩着索洛城，仿佛一条无边无际的黑色幕布，天上下起小雨，将整个世界隔绝在阴冷的深渊中。伦德萨尔站在城墙上，耳边充斥着守卫们沉重的喘息声和影魔那低沉、扭曲的嘶吼。他的目光穿过破败的战场，望向天边，却只能看到一片黑暗。</span></p><p><span>太阳还没有升起……</span></p><p><span>他握紧法杖，感觉到体内的魔力在迅速消耗。他施展了无数次光之法术，几乎耗尽了全部精力，但依然无法阻止影魔源源不断地从地底爬出。每一只倒下的影魔，都会被更多的黑暗生物取代，而被杀死的士兵则会立刻变成它们的同类，加入进攻的行列。</span></p><p><span>“真是没完没了！”伦德萨尔咒骂道。</span></p><p><span>如果撑不到天亮，索洛城就会彻底沦陷……</span></p><p><span>伦德萨尔的心中涌起一股前所未有的绝望。几十年的对于光之法术的不断专精，但如今，他却发现自己无力回天。无尽的黑暗像是一个巨大的深渊，正在一步步吞噬这座城市。</span></p><p><span>“我们……快撑不住了！”一个守卫发出绝望的喊声。他身上的盔甲已经破烂不堪，满脸鲜血，手中的长剑颤抖着，几乎握不稳。</span></p><p><span>“继续战斗，幸好我还剩下一招，一个真正的绝活！”伦德萨尔大声命令，声音在黑暗中回荡。他知道，士兵们的士气已经濒临崩溃。他必须给他们希望，但是他也明白，所谓的绝活不过是安慰，自己早已束手无策，如果没有奇迹发生，所有的一切都将付诸东流。</span></p><p><span>奇迹……</span></p><p><span>伦德萨尔的思绪猛然一闪。他的手指无意间滑过法杖上古老的符文，感受到一股微弱的震动。光之法术……是的，光明一直是他掌控的力量。如果他能提前将光明带到这片黑暗中，也许——</span></p><p><span>他抬头望向远方的天际，心中一个大胆的想法浮现出来。“如果我能拉动太阳...让日出提前到来...”</span></p><p><span>这并不是一个复杂的法术，事实上，拉动太阳和移动一块石头、吹起一阵风没有太大的区别。它的核心原理简单至极——法力可以驱动物体，只是太阳太过庞大，普通的巫师根本没有足够的力量去控制这样一个巨大的天体，事实上，他从未听说过谁施放这种法术，也许只有真正的传奇大法师，那些人们口中的传说，才有资格尝试。</span></p><p><span>但现在，伦德萨尔知道，自己别无选择。</span></p><p><span>他闭上眼睛，深吸一口气，身体仿佛被夜风中的寒意包围。远处传来的影魔的嘶吼让他感到一种紧迫感，时间已经不多了。索洛城的命运全系于这一刻，他必须去尝试，尽管他从未有过如此壮大的挑战。</span></p><p><span>法力衍生到世界的另一端，他感受到了太阳的存在，炽热，闪耀。他试图给太阳一个小小的推力。</span></p><p><span>太阳纹丝不动。</span></p><p><span>“我必须做到……”伦德萨尔低声自语，手握法杖，开始吟唱咒语。</span></p><p><span>一开始，咒语只是轻声呢喃，仿佛是风中的呢语，但随着每一个古老符号的诵念，周围的空气开始震动。伦德萨尔能感觉到魔力在汇聚，法杖上的符文变得越来越亮，发出柔和的白光。他感到太阳微微颤动了一下。光芒从他的手掌蔓延至全身，他的身体周围开始闪烁起细小的光粒，如同被星光包裹。</span></p><p><span>法术的力量逐渐加大，伦德萨尔感觉到一股巨大的力量从天空深处传来——那是太阳的引力，沉重而难以控制，仿佛一颗巨大而无法撼动的岩石。但他没有停下，继续用尽全力将光的力量推向天际。</span></p><p><span>天边，一道细小的曙光悄然出现。</span></p><p><span>伦德萨尔的心中猛然升起一丝希望。太阳正在靠近……它正响应我的召唤。</span></p><p><span>城墙上的守卫们也注意到了这道微弱的曙光，他们的眼中浮现出一抹生机，仿佛在无尽的黑暗中看到了最后的希望。然而，影魔们显然也察觉到了光的逼近。它们发出更加狂暴的嘶吼声，仿佛被点燃了愤怒，疯狂地冲向城墙，试图在光芒彻底降临之前毁灭一切。</span></p><p><span>“保护城墙！不能让它们打断大法师！”一名士兵高喊。</span></p><p><span>士兵们在绝望中拼尽最后的力气，用武器击退不断涌来的影魔，血肉与黑影交织在一起。每一声惨叫，每一次武器的碰撞，都如雷鸣般在黑夜中响彻。</span></p><p><span>伦德萨尔没有时间去关注战斗的进展。他的全身已经被汗水浸透，额头的青筋暴起，胸口剧烈起伏。他能感受到魔力如洪水般从身体中流逝，每一秒都像是生命的流失。</span></p><p><span>但他不能停下。</span></p><p><span>“太阳……必须升起来……”伦德萨尔咬紧牙关，声音变得嘶哑。</span></p><p><span>随着他的咒语加深，天边的曙光逐渐变得强烈，一道金色的光芒开始穿透黑暗，映射在远处的地平线上。那光芒如同一道利刃，劈开了黑夜的幕布，给整个索洛城带来了短暂的希望。</span></p><p><span>影魔们开始发出痛苦的哀嚎，它们畏惧阳光，动作变得迟缓，身体在光芒的照射下冒出黑烟，仿佛下一秒就要化为灰烬。</span></p><p><span>但伦德萨尔知道，这还远远不够。</span></p><p><span>太阳必须完全升起，否则这些光芒只是短暂的火花，无法真正摧毁影魔。</span></p><p><span>他的魔力几乎耗尽，手中的法杖变得沉重无比，仿佛一块千斤重的巨石。他的双腿开始颤抖，意识变得模糊，眼前的景象逐渐模糊成一片。空气变得稀薄，每一次呼吸都像是在吸入冰冷的刀片。</span></p><p><span>“坚持住……伦德萨尔，你必须坚持住……”他低声对自己说，声音几乎听不见。</span></p><p><span>就在这时，他感受到一股巨大的反作用力从法杖中传来，几乎将他击倒在地。他的双腿一软，跪倒在城墙上，手中的法杖仍然死死握住。咒语的尾音在空气中回荡，伦德萨尔知道，这已经是最后的机会。</span></p><p><span>他闭上眼睛，集中最后的一丝魔力，发出最后的咒语。</span></p><p><span>突然，一道耀眼的光芒如同巨浪般涌出，整个天空瞬间被刺目的光亮所笼罩。</span></p><p><span>日出时刻，光芒如潮水般涌向大地，瞬间覆盖了索洛城的每一个角落。影魔在阳光的照射下发出痛苦的尖叫，它们的身体开始迅速燃烧，化为灰烬，消失在空气中。黑暗中的低吼声逐渐消失，取而代之的是无尽的宁静。</span></p><p><span>伦德萨尔跪倒在地，望着远处的太阳，嘴角浮现出一抹微笑。索洛城得救了，但他知道，自己已经耗尽了一切力量。他的身体仿佛被抽空，意识开始逐渐模糊。</span></p><p><span>在光芒的映照下，伦德萨尔闭上了眼睛，身体轻轻倒在了城墙上。</span></p><h1 id='第五章'><span>第五章</span></h1><p><span>阳光终于洒在了索洛城的城墙上，但这并没有带来预期中的温暖和安慰。晨光透过逐渐消散的黑暗，照亮了遍地的血迹与残骸。空气中弥漫着一股焦灼的气息，那是影魔化为灰烬后留下的痕迹，飘散在每一寸土地上。</span></p><p><span>一个士兵站在战场上，上一秒，他整举起手中的剑，防御一只影魔的攻击。下一秒，影魔化为了灰烬，在微风中被吹散。</span></p><p><span>“结束了？我们...胜利了吗？”他低声喃喃道，目光游离在灰烬与倒下的同伴之间。他没有得到任何回应，刚才还嘈杂的战场此刻安静得可怕。</span></p><p><span>不远处，另一个士兵的尸体依然保持着战斗的姿势，手中紧握的长矛已经被折断，眼睛仍然睁着，似乎他还在与那些影魔搏斗。但他已经无法醒来，生命在那一夜的战斗中彻底逝去。他的尸体上，覆盖着一层薄薄的灰烬，仿佛是在悼念他英勇的牺牲。</span></p><p><span>年轻士兵蹲下身，伸出手轻轻拂去同伴脸上的灰烬，心中涌起一股无言的悲痛。他想说些什么，但喉咙干涩，无法发出声音。昨晚战斗的每一幕都还历历在目，那无穷无尽的影魔，那一次次拼死抵抗。</span></p><p><span>士兵的目光转向城墙的另一边，那里，伦德萨尔的身影静静地躺在地上，法杖还紧握在手中。太阳的光芒洒在他身上，仿佛在为他送行。他的脸上带着一丝平静的微笑，那是完成使命后的宁静，但他的身体再也不会动了。</span></p><p><span>士兵缓缓走到伦德萨尔的身旁，跪了下来。他不知道自己该是什么心情。没有欢呼，没有胜利的喜悦，只有无尽的疲惫和对未来的茫然。</span></p><p><span>他的身边逐渐聚集起幸存的居民，他们的目光中没有任何胜利的光彩。几乎每个人都在为失去的亲人或朋友而痛苦，他们知道，这并不是一场值得庆祝的胜利。影魔虽然暂时被驱散，但所有人都清楚，这只是短暂的安宁。</span></p><p><span>“夜晚……还会再来。”一名幸存者低声说，语气中充满了忧虑。</span></p><p><span>“是的。”另一个人应声道，声音中夹杂着颤抖。“影魔并没有完全被消灭，它们只是在阳光下退缩。等到夜晚再次降临，它们还会回来。”</span></p><p><span>这句话像一块冰冷的石头，沉重地砸在每个人的心头。索洛城虽然暂时得救，但这场战斗远未结束。夜晚的降临已经成为了他们最大的恐惧，他们无法再依赖任何法术或奇迹。他们活了下来，但未来的夜晚依然充满了危险。</span></p><p><span>“我们不能再留在这里。”有人突然开口，声音中带着决绝的坚定。“必须离开索洛城，趁着白天，去别的地方，去那些还能提供保护的城市。”</span></p><p><span>一阵低语在人群中传开。留下，等待下一个夜晚的袭击，或者趁着白天逃离？这是他们面临的唯一选择。影魔的恐惧已经深深扎根在每一个幸存者的心中，没有人愿意再面对那无尽的黑暗。</span></p><p><span>年轻的士兵站了起来，幸存的人们看向他，似乎在等待他的决定。他的内心充满了矛盾和无力感。尽管他们活了下来，但他无法感受到任何的庆幸。昨夜的战斗似乎还在眼前，而未来的不确定性让他无法找到方向。他抬头望向逐渐升起的太阳。阳光温暖，但这温暖背后却隐藏着深深的危机。等到今天的白天结束，黑暗再次降临时，他们是否还能坚持？影魔是否会再度袭击？这些问题无人知晓。</span></p><p><span>“带上能带的东西，立刻准备出发。”他最终说道。</span></p><p><span>人群开始默默地分散，回到家中收拾行装。没有喧哗，没有争吵，每个人都沉默着，像是被一种无形的力量压制住。他们拖着疲惫的身体，准备离开曾经的家园，寻找另一片安宁之地。</span></p><p><span>士兵转身跟随人群，离开了城墙，走向城门。他的步伐沉重，心中却充满了不确定。他不知道未来会是什么样子，但他知道，索洛城已经不再是他们的家。</span></p><p><span>城门缓缓开启，人们排成队，拖着疲惫的身躯，离开了这座曾经属于他们的城市。影魔的灰烬在风中飘散，混杂着沙尘，似乎是对这场战斗最后的告别。</span></p><p><span>索洛城在阳光下显得无比空旷和孤寂。没有了往日的喧嚣，只剩下残破的城墙和遍地的尸体，仿佛一座死寂的废墟。</span></p><h1 id='尾声'><span>尾声</span></h1><p><span>“你让我很失望。”黑暗中，一个低沉、威严的声音突然响起，带着显而易见的怒气。</span></p><p><span>狄斯托德面色阴沉，冷静地回答：“我已经按照你的要求做了。所有守城的法师都已撤离索洛城。现在，请履行我们的约定。”</span></p><p><span>黑暗中的声音变得更加咄咄逼人，仿佛蕴含着难以抑制的愤怒。</span></p><p><span>“约定？”声音中带着讥讽与嘲弄，“显然，你玩弄的是文字游戏！我不在乎你那些废话。我要的，是一座没有任何威胁的城市！但索洛城……居然还有一名大法师留在那里。你给了我什么？什么也没有！”</span></p><p><span>“所有驻守的巫师都撤走了，没有留下任何人。我做了你要求的所有事。”狄斯托德的语气仍然冷静，尽量保持镇定，但内心已有隐隐的不安。</span></p><p><span>“我不在乎你的小伎俩！”声音暴怒地回响在黑暗中。“索洛城本该是我的，现在滚回去！等你真正搞定了我要的东西，再来和我谈什么约定！”</span></p><p><span>黑暗中的声音戛然而止，仿佛凭空消失，留下的只有沉寂和阴冷的气息。</span></p><p><span>狄斯托德站在原地，脸色冰冷。他的计划本应完美无缺，掌号使和所有守城法师已经被召集北上，按照他设计的步骤，索洛城应当在影魔的进攻下完全沦陷。完美无缺，自己渴求的自由与力量唾手可得。</span></p><p><span>他转身，走回自己的塔楼。推开那扇沉重的石门，进入了室内昏暗的大厅。那里，巨大的圆桌周围伫立着十四座静止的石像，每一个都像是瞬间凝固的生命，栩栩如生。</span></p><p><span>狄斯托德走到圆桌的尽头，手指轻轻挥动。一座石像被激活了，石像的表面灰尘簌簌落下，逐渐恢复成一个穿着白色法袍的巫师。</span></p><p><span>“我有几个问题，掌号使，”狄斯托德目光阴冷，声音低沉而冰冷，“首先，那位留在索洛城的大法师是谁？”</span></p></div></div>
+
+<script>(function(){var e=document.body.parentElement,t=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(e,t,n){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var i=e.target;i&&i!=this;i=i.parentNode)if(i.matches(t)){!1===n.call(i,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)};function o(){return e.scrollTop}r("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),d(),!1}),r("click",".outline-item",function(e){var t=this.querySelector(".outline-label");if(location.hash="#"+t.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),c(),n.add("outline-item-active")}});var a,s,l=function(){var e=o();n=null;for(var i=0;i<t.length&&t[i][1]-e<60;i++)n=t[i]},c=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},d=function(){if(n){c();var e=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(e)if(i){var t=e.closest(".outline-item-open>ul>.outline-item-wrapper");if(t)t.classList.add("outline-item-active");else{for(var r=(e=e.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(e=r).parentElement.closest(".outline-item-wrapper");e.classList.add("outline-item-active")}}else e.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(e){a&&clearTimeout(a),a=setTimeout(function(){l(),d()},300)});var u=function(){s=setTimeout(function(){!function(){t=[];var e=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");t.push([i,e+n.getBoundingClientRect().y])})}(),l(),d()},300)};window.addEventListener("resize",function(e){s&&clearTimeout(s),u()}),u()})();</script></body>
+</html>

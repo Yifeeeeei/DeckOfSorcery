@@ -34,6 +34,12 @@ const configs = {
                     jumpHere("htmls/Fires.html");
                 },
             },
+            Dawn: {
+                name: "破晓",
+                function: function () {
+                    jumpHere("htmls/Dawn.html");
+                },
+            },
         },
     },
 };
