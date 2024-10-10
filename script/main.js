@@ -1,6 +1,6 @@
 const configs = {
     guide: {
-        name: "新人指南",
+        name: "游玩指南",
         id: "guide",
 
         function: function () {
@@ -11,6 +11,14 @@ const configs = {
                 name: "卡组构筑",
                 function: function () {
                     jumpToOther("https://yifeeeeei.github.io/SorceryComposer/");
+                },
+            },
+            ttsMod: {
+                name: "TTS模组",
+                function: function () {
+                    jumpToOther(
+                        "https://steamcommunity.com/sharedfiles/filedetails/?id=3155709993"
+                    );
                 },
             },
         },
