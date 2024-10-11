@@ -1,0 +1,594 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext);
+
+/* cyrillic-ext */
+/* cyrillic */
+:root {
+	--window-border: none;
+	--typora-center-window-title: true;
+	--active-file-bg-color: #f3f3f3;
+	--bg-color: #fcfcfc;
+	--control-text-color: #777;
+}
+
+.mac-seamless-mode #typora-sidebar {
+	top: 20px;
+	padding-top: 0;
+	height: auto;
+}
+
+html,
+body,
+#write{
+	background: #fcfcfc;
+	background: var(--bg-color);
+	font-family: 'TeXGyreAdventor', "Century Gothic", "Didact Gothic", "Yu Gothic", 'Segoe UI Emoji', sans-serif;
+	font-weight: 300;
+	-webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #111;
+	font-family: 'TeXGyreAdventor', "Century Gothic", "Didact Gothic", "Yu Gothic", sans-serif;
+}
+
+html {
+	font-size:16px;
+}
+
+#write {
+	max-width: 914px;
+	text-align: justify;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+#write>h1:first-child {
+	margin-top: 2.75rem;
+}
+#write>h2:first-child {
+	margin-top: 1.75rem;
+}
+#write>h3:first-child {
+	margin-top: 1rem;
+}
+#write>h4:first-child {
+	margin-top: 0.5rem;
+}
+h1 {
+	font-weight: normal;
+	line-height: 4rem;
+	margin: 0 0 1.75rem;
+	padding: 20px 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 4rem;
+}
+h2 {
+	font-weight: normal;
+	line-height: 3rem;
+	margin: 0 0 1.9375rem;
+	padding: 0 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 3rem
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-weight: normal;
+}
+h5 {
+	font-size: 1.125rem;
+	font-weight: normal;
+}
+h6 {
+	font-size: 1rem;
+	font-weight: bold;
+}
+p {
+	color: #111;
+	font-size: 1rem;
+	line-height: 1.75rem;
+	margin: 0 0 1.25rem;
+}
+#write>h3.md-focus:before {
+	left: -1.875rem;
+	top: 0.5rem;
+	padding: 2px;
+}
+#write>h4.md-focus:before {
+	left: -1.875rem;
+	top: 0.3125rem;
+	padding: 2px;
+}
+#write>h5.md-focus:before {
+	left: -1.875rem;
+	top: 0.25rem;
+	padding: 2px;
+}
+#write>h6.md-focus:before {
+	left: -1.875rem;
+	top: .125rem;
+	padding: 2px;
+}
+@media screen and (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.250rem;
+	}
+	.h5,
+	h5 {
+		font-size: 1.150rem;
+	}
+	.h6,
+	h6 {
+		font-size: 1rem;
+	}
+}
+a,
+.md-def-url {
+	color: #990000;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+table {
+	margin-bottom: 20px
+}
+table th,
+table td {
+	padding: 8px;
+	line-height: 1.25rem;
+	vertical-align: top;
+	border-top: 1px solid #ddd
+}
+table th {
+	font-weight: bold
+}
+table thead th {
+	vertical-align: bottom
+}
+table caption+thead tr:first-child th,
+table caption+thead tr:first-child td,
+table colgroup+thead tr:first-child th,
+table colgroup+thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+	border-top: 0
+}
+table tbody+tbody {
+	border-top: 2px solid #ddd
+}
+code, .md-fences {
+	padding: .5em;
+	/*background: #f0f0f0;*/
+	border: 1px solid #ccc;
+	padding: .1em;
+	font-size: 0.9em;
+	margin-left: 0.2em;
+	margin-right: 0.2em;
+}
+.md-fences {
+	margin: 0 0 20px;
+	font-size: 1em;
+	padding: 0.3em 1em;
+  	padding-top: 0.4em;
+}
+.task-list{
+	padding-left: 0;
+}
+
+.task-list-item {
+	padding-left:2.125rem;
+}
+
+input {
+	border-style: ridge;
+}
+
+.task-list-item input {
+	top: 3px;
+}
+
+.md-task-list-item input {
+	margin-left: -1.5em;
+}
+
+.task-list-item input:before {
+	content: "";
+	display: inline-block;
+	width: 1rem;
+	height: 1rem;
+	vertical-align: middle;
+	text-align: center;
+	border: 1px solid gray;
+	background-color: #fdfdfd;
+	margin-left: 0;
+	-webkit-appearance: none;
+	margin-top: -1rem;
+}
+
+.typora-node .task-list-item input:before {
+	top: 0.3ex;
+	position: absolute;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before{
+	content: '\25FC';
+	/*◘*/
+	font-size: 0.8125rem;
+	line-height: 0.9375rem;
+}
+
+/* Chrome 29+ */
+.task-list-item input:before {
+	margin-top: -0.2rem;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before {
+	margin-top: -0.2rem;
+}
+
+.html-for-mac .task-list-item input:checked:before,
+.html-for-mac .task-list-item input[checked]:before {
+	margin-top: -0.8rem;
+}
+
+blockquote {
+	margin: 0 0 1.11111rem;
+	padding: 0.5rem 1.11111rem 0 1.05556rem;
+	border-left: 1px solid gray;
+}
+blockquote,
+blockquote p {
+	line-height: 1.6;
+	color: #6f6f6f;
+}
+#write pre.md-meta-block {
+	min-height: 30px;
+	background: #f8f8f8;
+	padding: 1.5em;
+	font-weight: 300;
+	font-size: 1em;
+	padding-bottom: 1.5em;
+	padding-top: 3em;
+    margin-top: -1.5em;
+	color: #999;
+	
+	width: 100vw;
+	max-width: calc(100% + 60px);
+	margin-left: -30px;
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+}
+.MathJax_Display {
+	font-size: 0.9em;
+	margin-top: 0.5em;
+	margin-bottom: 0;
+}
+p.mathjax-block,
+.mathjax-block {
+	padding-bottom: 0;
+}
+.mathjax-block>.code-tooltip {
+	bottom: 5px;
+	box-shadow: none;
+}
+.md-image>.md-meta {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+.md-image>img {
+	margin-top: 2px;
+}
+.md-image>.md-meta:first-of-type:before {
+	padding-left: 4px;
+}
+
+#typora-source {
+	color: #555;
+}
+
+/** ui for windows **/
+#md-searchpanel {
+    border-bottom: 1px solid #ccc;
+}
+
+#md-searchpanel .btn {
+    border: 1px solid #ccc;
+}
+
+#md-notification:before {
+	top: 14px;
+}
+
+#md-notification {
+	background: #eee;
+}
+
+.megamenu-menu-panel .btn {
+	border: 1px solid #ccc;
+}
+
+#typora-sidebar {
+	box-shadow: none;
+}
+
+.file-list-item ,
+.show-folder-name .file-list-item {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	line-height: 20px;
+}
+
+.file-list-item-summary {
+	height: 40px;
+	line-height: 20px;
+}
+
+.ty-table-edit {
+	background: #ededed;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>风暴之城</title>
+</head>
+<body class='typora-export typora-export-show-outline typora-export-no-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第一章">第一章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第二章">第二章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第三章">第三章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第四章">第四章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第五章">第五章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第六章">第六章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#第七章">第七章</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#尾声">尾声</a></div><ul class="outline-children"></ul></li></div></div><div id='write'  class=''><h1 id='第一章'><span>第一章</span></h1><p><span>肃，特兰城的守护者，一位强大的雷术士，站立在高耸的城墙之上。他的长袍被狂风撕扯，猎猎作响，身影如同一尊亘古不动的雕像，凝视着远方的山峰，山峰顶端，伫立着一面大鼓。</span></p><p><span>“唤雷震鼓……”他低声喃喃，声音中透着无法掩饰的渴望，“只要完成了它……”</span></p><p><span>肃向城主特兰请求建造唤雷震鼓已有数月之久，鼓的铸造已经接近尾声。肃亲自设计，城主批准，执行官无心负责监督建造。作为特兰城数十年的守护者，肃凭借强大的雷电之力多次挽救城池于危难之中。他曾对城主承诺，一旦震鼓竣工，特兰城将永远不惧任何外敌与灾难。</span></p><p><span>身后传来了城主特兰的脚步声，肃转过身，看到特兰带着两名护卫缓步走来。城主身穿一袭华丽的紫袍，象征着他的无上权威。尽管年事已高，但他的眼神依然锐利，透着城主多年统御的威严。</span></p><p><span>“肃。”特兰站定，目光锐利地看向肃。“你口中的唤雷震鼓，真的能保住我们的城市？”</span></p><p><span>肃微微一笑，淡然回应：“黑袍执行官无心已经全程监督，现在只差最后的组装。一旦鼓声响起，这场风暴将再也不会威胁特兰城。”</span></p><p><span>听到这话，特兰略显紧张的神情舒缓了几分，他拍了拍肃的肩膀：“我一直相信你，肃。特兰城的命运托付于你。”</span></p><p><span>肃点点头，目光依旧遥望着远方。</span></p><hr /><p><span>最后的组件被运送到了山顶，肃亲自检查每一个细节。巨大的鼓架巍然耸立，仿佛一座古老的祭坛，而唤雷震鼓则像一件旷世神器，散发着隐隐的力量光辉。鼓面上雕刻着繁复的符文，那些符文承载着风暴的力量，而最引人注目的是，鼓上安装的魔法手臂，可以在施法者的控制下自动擂动，召唤雷电。</span></p><p><span>守卫们围在四周，敬畏地注视着这件神器。多年来，他们与肃并肩保卫这座城市，如今，他们同样相信肃的预言——唤雷震鼓将一劳永逸地解决所有威胁。</span></p><p><span>无心走向肃，她的黑袍随风飘扬，眼中满是疑惑与审视。“肃，这东西远比你说的要强大，它的真正用途是什么？”</span></p><p><span>肃没有直接回答她的疑问，只是平静地说：“它将召来一场风暴，为我提供源源不绝的力量。保护特兰城……是一件艰巨而疲惫的事。”</span></p><p><span>“可你已经能够召唤风暴，为什么还需要它？”无心依然不解。</span></p><p><span>肃的嘴角微微扬起，却没有解释更多。</span></p><p><span>无心叹了口气，转身离开。“好吧，肃，我相信你。希望我们没有别的选择了。”</span></p><hr /><p><span>“肃！”城主特兰的声音在风中传来。他大步走上山顶，神情紧张中带着一丝期待。“今天是特兰城的历史时刻，你准备好了吗？”</span></p><p><span>肃点了点头，目光如钢般坚定。“当然，城主大人。”</span></p><p><span>“那么，开始吧！”特兰的声音在广场上回响，肃心中清晰地意识到，属于他的时刻已然来临。</span></p><p><span>他轻声念动咒语，魔法手臂开始缓慢擂动鼓面，沉重的鼓声宛如从天地深处传来，回荡在特兰城上空。远方的天际随之震颤，不祥的雷鸣渐渐回响，乌云迅速汇聚，狂风骤起，席卷大地。</span></p><p><span>鼓声忽然变得急促，仿佛一股无形的力量正从天际深处被唤醒。</span></p><p><span>“又是一场风暴，”特兰苦笑，“大气巫师们总是如此。”</span></p><p><span>骤然间，天色如墨般暗沉，乌云宛如压低的穹顶，以肉眼可见的速度迅速扩张，吞没了远方的山脊与天空。厚重的云层像无边的黑幕，将整个世界笼罩在无尽的阴影中。空气仿佛凝固了一般，令人窒息的压迫感从四面八方挤压而来，仿佛连呼吸都被禁锢在这无形的牢笼中。</span></p><p><span>天空彻底被乌云遮蔽，肃站在唤雷震鼓前，双眼中闪烁着狂热的光芒。他的双手高举，风暴在他头顶咆哮，雷电在乌云中盘旋，仿佛整个天穹都在回应他的召唤。狂风夹杂着雷霆的力量从四面八方涌来，肃的长袍在风中翻飞，他的身影仿佛与这股风暴融为一体。</span></p><p><span>“来吧……力量，降临到我身上。”肃低声咆哮，声音中透着无法抑制的野心。他感受到雷霆的力量在他的身旁游走，充满了毁灭与创造的原始力量。</span></p><p><span>他闭上双眼，张开双臂，仿佛要将这股自然的狂暴之力纳入自己的掌控。雷电从天空中如银蛇般劈下，瞬间击中唤雷震鼓，发出震耳欲聋的响声。肃没有退缩，他的手指微微颤动，紧握法杖，雷霆的力量如潮水般向他袭来。</span></p><p><span>那一瞬间，电流通过他的身体，犹如无数根燃烧的铁钉刺入他的肌肤。肃的脸上却没有丝毫的痛苦，反而浮现出一种狂喜的表情。他的身体颤抖，肌肉因承受巨大的能量而绷紧，但他依旧站立不动，任凭雷电的力量贯穿全身。</span></p><p><span>“风暴……这才是真正的力量！”他低声喃喃，双眼在雷霆的光芒中闪烁着兴奋的光彩。他试图引导这股狂暴的力量，企图将它融入自己的血脉，成为自己的一部分。</span></p><p><span>“肃，这……这风暴怎么会如此狂暴？”特兰的声音在急剧变化的环境中显得脆弱，他的脸上已失去了先前的淡定，显露出一丝惊恐和疑惑。“它的力量……如此强大……它不会摧毁特兰城吧？”</span></p><p><span>肃没有立刻回应，而是缓缓转身，脸上浮现出一种诡异的笑意，仿佛早已预见了这一切。“放心，城主大人，只有彻底释放风暴的全部力量，才能真正掌控它。”</span></p><p><span>天空中，一道巨大的闪电划破五音，瞬间将整个天地照亮，随即是雷鸣声震耳欲聋，仿佛天穹正在被无形的手撕裂。特兰的瞳孔猛然收缩，脸上血色尽失，额头上渗出了细密的冷汗。他终于意识到肃的野心远远超出了保护城市的范围。</span></p><p><span>“肃，住手！这股力量会毁掉我们的一切！”特兰的声音因恐惧而变得尖锐，他试图唤醒肃的理智，“我们可以另寻他法，不必冒如此巨大的风险！”</span></p><p><span>肃的眼神渐渐变得锋利而凌厉，他的语气中带着一种难以掩饰的狂妄与蔑视。“真正的法术是与生俱来的,可惜这点天分与神的力量相比还是太渺小了”他轻蔑地摇了摇头，仿佛对城主的惧怕感到可笑。“神灵将他们的力量肆意挥霍在世间，难道你不想看看，只要我们能够掌控哪怕其中的一点，我们就能成就没人能想象的事情！来吧，特兰，见证我的蜕变吧！”</span></p><p><span>这一刻，特兰心中猛地一沉，肃的真实意图让他浑身发冷。他大声怒斥道：“肃，你疯了！你这是在毁灭我们！”</span></p><p><span>但肃的目光早已充满雷电的狂暴光芒。他的双手高举，天际的雷霆如被召唤的野兽，瞬间狂啸而至，直击唤雷震鼓。轰然巨响如同撕裂大地，鼓声震颤着整个山顶，连脚下的岩石都为之颤抖。肃的身影在雷光中若隐若现，宛如天神降临，身体被雷霆包裹，仿佛与这场风暴融为一体。</span></p><p><span>狂风肆虐，撕裂着山巅的一切，雷电在乌云中炸裂，宛如撕裂天地的利刃。肃的声音，带着狂暴的力量，回荡在天地之间，浑厚而低沉，仿佛来自远古的雷神：“你们甘愿屈从于命运的桎梏，永远做神的仆从？不！我要掌控这股真正的力量！从今天起，特兰城在我的庇护下，不再有任何敌人能撼动它！”</span></p><p><span>雷霆似乎在回应他的狂妄宣言，疯狂地撕扯着天空与大地。狂风卷起的瓦砾在风暴中如利刃般飞舞，摧毁着一切。肃的身影在风暴中高耸，仿佛一位掌控雷电的神灵，他正吸收着风暴的力量，</span></p><p><span>特兰终于意识到，肃已经无法被劝阻。他脸色苍白，迅速下令：“阻止他！肃已经被他的野心吞噬，快阻止他！”</span></p><p><span>军队仓促集结，但他们的力量在肃的雷电面前显得如此无力。每一次肃的挥手，雷霆如同利鞭，肆虐大地。无心也奋力加入战斗，暗影法术在她的指间旋转，但在肃的雷电冲击下瞬间崩解。她的屏障在雷光中如纸般脆弱，连人都被震得连连后退。</span></p><p><span>肃站在山巅，雷光映照着他狂放的面孔，笑声在天地间回荡，如同狂风中的呓语，充满了难以抑制的疯狂。他此刻，已然是风暴与雷电的化身，俯瞰着即将臣服于他脚下的世界。</span></p><p><span>无边的狂风撕裂着一切，雷霆在肃的头顶炸裂。他的声音与风暴混为一体，回荡在天地间。</span></p><p><span>“不！我需要更多的力量！特兰城，将不再惧怕任何敌人！不再屈服于命运的枷锁！”</span></p><p><span>特兰意识到肃已经无可挽回，他迅速下令护卫集结军队，“阻止他！”他不甘心地拔出剑，亲自冲向肃，但他还未接近肃，便被一道雷光击中。特兰的身体在空中划出一道抛物线，重重摔落在山脚之下。</span></p><p><span>但军队在肃的雷电力量面前不堪一击，无心也奋力抵挡，却无法与肃的雷霆匹敌。雷电撕裂了她的屏障，将她震退。</span></p><p><span>肃站在山巅，仿佛掌控天地的雷神，狂笑声回荡在无尽的风暴之中。</span></p><h1 id='第二章'><span>第二章</span></h1><p><span>特兰城的风暴愈加疯狂，雷鸣声仿佛要撕裂大地，闪电像怒龙般从乌云中窜出，横贯天际，照亮了天空的每一寸黑暗。肃站在唤雷震鼓旁，浑身被雷电的光辉包裹，宛如雷神降世。他的目光俯视着整个特兰城——被风暴肆虐的街道、惊恐逃窜的百姓，还有那些试图抵抗的军队与巫师。肃的目光中充满了冷漠与不屑，他的力量已经超越了凡人，不再是这片土地的守护者，而是它的主宰。</span></p><p><span>但就在此时，天空中撕开了一道耀眼的光芒，如同破晓的第一缕曙光，穿透了厚重的乌云，将光明洒向大地。那光芒迅速靠近，伴随着一股圣洁且威严的气息。</span></p><p><span>“我不容许如此亵渎的行为！”一道清亮坚定的声音从天空传来，直穿风暴的怒吼。</span></p><p><span>肃微微抬头，嘴角勾起一丝冷笑，眯起眼望向那道光芒。只见一名身披金色铠甲的骑士，骑着圣兽珀伽索斯从天而降，光芒自她的盔甲与圣兽的双翼上迸发出来，宛如光明的化身。她，正是天马骑士团的团长希里。肃曾听说过她的名号，这支骑士团游历四方，侍奉光明之神，誓言将光明洒遍世间每个角落。</span></p><p><span>“亵渎？”肃轻蔑地嗤笑了一声，双手握紧闪烁雷电的法杖，“我亵渎了谁？特兰城的人民，还是你那从未露面的神？”</span></p><p><span>希里并未被肃的狂妄言辞动摇，神情依旧坚定。她举起手中的长矛，长矛尖端闪耀着刺目的光辉，仿佛能撕裂风暴。“肃，我曾听闻你守护特兰城的壮举，但你已经迷失在力量的欲望中。特兰城不需要一个自称神灵的暴君。光明终将驱散黑暗。”</span></p><p><span>肃轻哼一声，眼中闪烁着不屑。“黑暗？光明也不过是另一种虚伪的束缚罢了。你不过是个凡人，被虚伪的承诺蒙蔽了眼睛。”</span></p><p><span>希里眉头微皱，肃的言辞让她感到一丝不安。她无法理解，曾经的守护者为何堕入疯狂，背弃了自己的使命。但现在不是纠结这些的时候，特兰城的存亡在即，肃必须被制止。</span></p><p><span>珀伽索斯双翼一展，希里随之直冲天际，光芒从她与圣兽身上迸发而出，像一道刺穿黑暗的光箭，照亮了整个特兰城。风暴中的闪电在她的光芒面前似乎微微黯淡。</span></p><p><span>“可笑！”肃冷笑着，法杖猛然挥下，乌云中雷电翻涌，如同咆哮的怒龙直扑希里而去。闪电撕裂空气，狂暴的能量仿佛要将希里和珀伽索斯撕碎成灰烬。</span></p><p><span>“珀伽索斯，圣光护佑！”希里低声念咒，珀伽索斯的双翼突然绽放出炽烈的光芒，一道纯净的光幕在它面前展开，犹如一道神圣的屏障，挡住了雷电的狂怒。闪电撞击在光幕上，迸发出刺耳的爆裂声，但却无法穿透那道圣光的屏障。</span></p><p><span>肃的眼中闪过一丝惊讶，他低估了希里的力量。空气中弥漫着浓烈的紧张气息，他能感受到希里的光明之力非同寻常。</span></p><p><span>希里没有给肃更多的时间。她握紧长矛，光明在她的指引下直冲云霄，仿佛要穿透天地。珀伽索斯振翅一跃，带着她从天际俯冲而下，光芒如利剑般直刺肃而去。</span></p><p><span>“天真！”肃冷哼一声，将法杖狠狠插入地面。唤雷震鼓再次轰鸣，雷声震撼天地，一道狂暴的雷霆从鼓中喷涌而出，如一条巨龙般迎向希里与珀伽索斯。雷霆与光芒在半空中相撞，巨大的能量冲击波将空气都震得扭曲，周围的山石和建筑都为之颤抖。</span></p><p><span>风暴在这一刻仿佛停滞了，天地间只剩下光与雷的交锋。肃面色狰狞，手中的法杖爆发出更为猛烈的雷电，雷光在他的指间舞动，他几乎能感受到自己即将完全掌控这股无边的力量。</span></p><p><span>但希里与珀伽索斯的光芒愈发耀眼，犹如破晓的第一道阳光，穿透了肃的雷电。她举起长矛，圣光从矛尖迸发而出，仿佛划开了天空，直逼肃而去。</span></p><p><span>“肃，结束了！”希里的声音带着决然与坚定，如雷鸣般在天地间回响。</span></p><p><span>肃的眼神闪烁了一下，他看见了那道强烈的光芒，心中一阵不安的悸动，他感受到了久违的恐惧。可这股恐惧被他的野心瞬间压制。他绝不相信，光明能够击败雷电的伟力，他已经触及到了掌控一切的边缘，岂能被区区凡人所阻挡？</span></p><p><span>“见证我！无可匹敌的强大！”肃咆哮着，手中的法杖高举，最后一道雷霆从天而降，直劈向希里。</span></p><p><span>就在这一瞬间，珀伽索斯的双翼绽放出耀眼的光芒，如同神圣的盾牌，将希里紧紧护住。随后，一道刺目的光柱从天而降，直照肃的双眼。他拼命睁开眼睛，希里突然从那光芒中现身，已然出现在他面前。她的长矛在光辉中闪耀，直指肃的胸膛。</span></p><p><span>“啊——！”肃发出凄厉的惨叫，光芒包裹了他的身体，雷电在他体内翻腾，仿佛试图挣脱这股光明的束缚。但那光芒越来越强烈，彻底压制了雷霆的咆哮，肃的身体逐渐扭曲，仿佛被光辉吞噬，直至化作虚无。</span></p><p><span>肃的身影最终在光中消失，雷电的力量随之散去，天地间只剩下圣洁的光芒笼罩着特兰城。</span></p><hr /><p><span>特兰城的广场上，肃消散的余光仍在空气中微微漂浮，但他的身影早已不复存在。百姓们从恐惧中缓过神来，抬头望向天空中的希里。她骑在珀伽索斯背上，光芒环绕，如同一位光明的使者降临人间。</span></p><p><span>特兰二世跪在父亲特兰城主的尸体旁，眼神复杂。他仰头望向希里，缓缓站起，语气中满是感激：“谢谢你，希里。”</span></p><p><span>希里俯瞰着广场上聚集的人群，心中却没有胜利的喜悦。肃的倒下不过是她职责的一部分，但肃的某些话语深深刻在了她的心中，挥之不去。</span></p><p><span>特兰城的百姓聚集在广场上，欢呼着：“希里！特兰城的救世主！”</span></p><p><span>希里沉默片刻，轻轻拍打珀伽索斯的颈背，缓缓降落在广场中央。她知道，此时需要回应民众的呼声，巩固光明的胜利。</span></p><p><span>“肃已经被消灭，特兰城将迎来永久的和平与光明。”希里的声音回荡在广场上，坚定而自信。</span></p><p><span>特兰二世走上前，神情复杂。“肃曾是我们的守护者，但他迷失了。现在，特兰城需要新的守护者。如果你和你的骑士团愿意，我们将供你差遣。”</span></p><p><span>“如果你同意，珀伽索斯可以庇护特兰城，风暴再也不会出现在特兰城。”希里说。</span></p><p><span>“太好了，我真是受够这帮大气巫师了。”特兰二世说。</span></p><h1 id='第三章'><span>第三章</span></h1><p><span>风暴过去后，特兰城渐渐恢复了表面的平静。肃的死亡和希里的胜利迅速成为民众津津乐道的故事，但在欢呼声和喜悦之后，一些更深刻的改变已悄然植入这座城市的根基。街道上曾经毁灭的痕迹虽然逐渐被修复，失去亲人的痛苦、雷霆带来的恐惧，却深深烙印在幸存者的心中，挥之不去。</span></p><p><span>在特兰城一个偏僻的角落里，一个小女孩蹲在破败的房屋前，目光空洞而茫然。她的父母曾是特兰城的守卫，他们与其他守卫一样，在肃的雷霆之怒中毫无抵抗之力，被轻易地击溃。家园随着雷电的闪烁化为废墟，温馨的生活一夕之间破灭，留下的只有残存的记忆和无尽的孤独。</span></p><p><span>她的目光始终停留在远方那座被雷电劈裂的山峰——肃曾在那里召唤风暴，摧毁了一切。</span></p><p><span>“你叫什么名字？”一道低沉而柔和的声音突然从她身后传来，打破了她内心的寂静。声音中带着某种难以言喻的力量，如同风一般轻柔，又如夜般深沉。</span></p><p><span>她缓缓转过头，看到一位身穿黑袍的女性静静站在她身后。她的眼神深邃，透着淡淡的忧伤，仿佛能看透世间的一切。正是无心，现在，她正四处调查风暴带来的损失。</span></p><p><span>女孩没有立刻回答，只是警觉地看着无心，眼神里闪过一丝惧怕和迷茫。片刻之后，她才怯生生地低声回答：“艾拉雅。”</span></p><p><span>无心微微点头，目光复杂地打量着眼前的女孩。艾拉雅的身上流露出一股微弱但独特的力量——一种与大气元素相连的力量。尽管艾拉雅自己尚未觉醒这种力量，但无心早已察觉到它的潜质。无心也清楚，在肃带来的风暴后，特兰二世和希里正在策划将城中所有与大气元素相关的巫师驱逐出城。大气法术几乎毁灭了特兰城，希里决不允许这种事情发生第二次。</span></p><p><span>她对这种决定深感不安，虽然肃彻底让大气巫师们名声扫地，但无心坚信，问题不在于大气本身，而在于使用它的人心。她清楚，光与暗、秩序与混乱的对立并非如此简单。</span></p><p><span>“艾拉雅，坚强些，”无心的声音轻柔却有力，仿佛带着一种无法拒绝的力量，“跟我走吧，我可以教你很多你需要的东西。”</span></p><p><span>艾拉雅困惑地看着无心，虽然心中满是迷茫和不安，但她已别无选择。她的家园已毁，她的父母已逝，眼前的这位陌生女子或许是她唯一的依靠。她默默点头，任由无心牵着她的小手，带着她走进黑暗的街巷深处。</span></p><hr /><p><span>无心的居所位于特兰城的边缘，远离喧嚣与光明的中心。这片区域寂静而隐秘，仿佛与世隔绝。在肃倒台后，光明骑士团的势力渐渐扩张，而无心则选择隐居于此，继续她的研究。她明白，肃带来的创伤不仅仅属于这座城市，它已经改变了整个世界的格局。</span></p><p><span>艾拉雅的生活在无心的庇护下渐渐恢复了平静。她每日学习一些简单的法术，心中却始终无法平息那份对父母的思念和对风暴的恐惧。她时常梦见那夜的雷霆，肃站在高处，俯视着一切，而她只能无力地看着一切被毁灭。</span></p><p><span>“你会变得更强，艾拉雅，”无心有一天对她说道，声音中透着一种冷静的力量，“但你必须明白，力量本身并不决定善恶，元素是中立的，赋予它们意义的，是使用它的人心。”</span></p><p><span>艾拉雅茫然地点了点头，但她并不完全理解这些话语。对她来说，肃的雷电毁灭了她的一切，而希里的光明则带来了拯救。她无法理解元素之间的平衡，她只知道，光明似乎总是战胜黑暗。</span></p><p><span>无心看着艾拉雅的反应，心中一阵叹息。她明白，这需要时间。肃的堕落不仅仅是因为他掌控了雷电的力量，而是他被自己内心的野心吞噬了。无心相信，艾拉雅与肃不同，这个女孩心中尚未被仇恨和野心所污染，但她也知道，未来的一切并非注定。艾拉雅将走向何处，仍是个未知数。</span></p><p><span>随着时间的推移，艾拉雅逐渐熟悉了无心的教导。但她不知道的是，无心并未向外界透露她真实的天赋。城中的人只认为她是无心收养的孤儿，学习暗影法术。然而，在暗中，无心悄然搜寻着大气巫师们遗留的资料，让艾拉雅学习大气法术的秘密，帮助她逐步掌控这股与生俱来的力量。</span></p><p><span>“或许有一天，特兰城将再次需要一名大气巫师。”无心在心中暗自思忖。</span></p><h1 id='第四章'><span>第四章</span></h1><p><span>夜幕沉沉，特兰城笼罩在不安与动荡中。曾经辉煌的光明力量，如今已经无法再给饥饿与绝望中的人们带来希望。二十年的莫名的粮食欠收，饥荒遍布每个角落，城市内的矛盾如火山般即将爆发。广场上，数百名愤怒的平民携带着简陋的武器，向城堡进发，他们的眼中不再有畏惧，只有对光明统治者的愤怒与质问。</span></p><p><span>“给我们一个答案！”一个瘦削的男人站在人群前，手中的木棍高高挥舞。“田地已经荒废，你的承诺不能填饱我们的肚子！”</span></p><p><span>随着他的呐喊，城堡的大门被推开，人群如洪水般涌入。城堡大厅内，特兰二世和希里正在紧张地等待。城主的脸上写满疲惫与焦虑，他的步伐不安地在大厅内来回踱步。</span></p><p><span>“人民已经失去了信任，希里。”他低声说，目光充满忧虑。“他们认为光明无法再保护他们。”</span></p><p><span>希里站在一旁，神情冷峻，手中的长矛闪耀着圣光。“光明不会让他们失望。”她的语气充满坚定，但眼中也带着一丝隐隐的不安。“我们必须维持秩序，否则混乱只会带来更大的毁灭。”</span></p><p><span>特兰二世沉默了片刻，目光复杂地看着希里。最终，他点了点头。</span></p><p><span>希里没有再犹豫，转身朝城堡外走去。她知道，她必须亲自面对那些已经失去信仰的人民。</span></p><hr /><p><span>城堡外，愤怒的群众已经逼近，希里站在阶梯顶端，手握长矛，身后的光芒如神祇般笼罩在她周围。她的声音如雷鸣般穿透人群的嘈杂，清晰地回荡在夜空中。</span></p><p><span>“退下！你们的恐惧蒙蔽了双眼。光明会为你们指引方向，秩序必须维持，混乱只会带来毁灭！”</span></p><p><span>人群短暂地安静下来，许多人被她的光辉和威严震慑住了。但这安静只持续了一瞬，随即，怒火再次在空气中爆发。</span></p><p><span>“光明不能给我们食物！你们让我们活在光明中，却让我们死于饥饿！”一个老妇人的声音嘶哑而尖锐，几乎刺破了希里的镇定。</span></p><p><span>就在此时，无心的身影从人群的阴影中缓缓走出。她的黑袍在夜风中轻轻飘动，仿佛与夜色融为一体。她走上台阶，站在希里身旁，低声说道：“希里，光明无法解决这些问题。你拒绝倾听，民众的愤怒会引发更大的危机。”</span></p><p><span>希里转头，目光如冰，显然对无心的突然出现极为不满。她冷冷地说道：“无心，现在是团结的时刻，而不是分裂的时刻。站在我身边，或者成为敌人。”</span></p><p><span>无心轻轻摇头，目光坚毅。“你的团结是建立在单一信仰上的偏执。光明不是唯一的答案，拒绝其他元素只会让这座城市陷入更大的混乱。”</span></p><p><span>希里的眼中燃起怒火，她的声音低沉而充满警告：“你在质疑我，也在质疑光明的力量。你知道这意味着什么。是不是需要我警告你，你曾亲手帮助肃，几乎把整个特兰城毁了。”</span></p><p><span>无心并未退缩，她的声音依旧冷静。“我质疑的不是光明，而是你对它的盲目迷恋。千百年自然的规律已经让元素之间相互平衡。我明白你的目的，但你的做法错了。我们需要的是元素的相互制约，而不是光明的独裁。”</span></p><p><span>希里顿了顿：“你只有两种选择，帮助我，或者背叛我。”</span></p><p><span>两人对峙的气氛在空气中凝固，仿佛一场无声的较量即将爆发。但无心最终转身，走向人群的另一侧。她知道，今天的对话已经无法挽回希里的信念。</span></p><hr /><p><span>当夜色彻底笼罩大地时，特兰城显得格外寂静。</span></p><p><span>无心回到她隐蔽的居所，心中感到前所未有的沉重。她知道，希里已经无法容忍她的存在，希里一直憎恨暗影法术，更甚于大气法术。只不过，她一只没有很好的原因能讲无心踢出局，但是，在如此危急关头，希里又会做出什么呢。</span></p><p><span>突然，门外传来了急促的脚步声，无心警觉地站起身。还未等她反应过来，粗暴的敲门声便响起。</span></p><p><span>“无心，开门！特兰亲自的命令，逮捕所有暗影巫师。”</span></p><p><span>外面的声音正是天马骑士团的成员，无心心中一沉，她知道，希里终究会动手，但没有想到这么快。她迅速走向艾拉雅，将她推向后门，语气严厉：“快走！去城外，不要回头！”</span></p><p><span>艾拉雅惊慌地看着无心，眼中透着不安。“可是你怎么办？”</span></p><p><span>无心握住她的手，目光坚定。“我会拖住他们，你必须离开。你的力量根本不足以抗衡他们。”</span></p><p><span>艾拉雅咬紧牙关，深深地看了无心一眼，最终不再犹豫，迅速转身逃向夜幕。</span></p><p><span>无心深吸一口气，转身面对紧闭的前门。她的法杖轻轻敲击地面，暗影的力量如潮水般涌出，迅速覆盖了房间。门被猛烈撞开，骑士们冲进来，长矛直指无心。</span></p><p><span>无心冷笑一声，挥动法杖，阴影如锁链般缠住了骑士的脚踝，将他们暂时困住。</span></p><p><span>“快走，艾拉雅……”她低声呢喃。</span></p><hr /><p><span>艾拉雅在夜幕的掩护下拼命奔跑，耳边只剩下风的呼啸声与自己急促的呼吸。她无法停止，心中的恐惧和焦虑在压迫着她——她不能让无心被抓住，不能让唯一对她重要的人消失在这场动荡之中。</span></p><p><span>“先藏起来，我会想出一个办法，然后我会回去！”她这么想到。</span></p><p><span>不知不觉间，她已来到一座高耸入云的山脚下。山峰在夜色中沉默不语，仿佛见证着历史的秘密。艾拉雅停住脚步，胸口剧烈起伏，但那股莫名的召唤感却在她心中愈加强烈。她心中一颤，仿佛有什么东西在吸引着她，让她一步步走向这片未知的高峰。</span></p><p><span>寒风在山道上呼啸，然而艾拉雅仿佛没有感到寒冷。她的身体像是被一种无形的力量推动着，越走越远。山路陡峭，夜色深重，但每当她迈出一步，心中的召唤便愈加清晰。她不知道自己在寻找什么，但她隐隐感到，山顶之上有某种不可忽视的力量在等待着她——一种能改变一切的力量。</span></p><p><span>终于，当她攀登到山顶时，眼前的一切静止了。周围的风似乎停止了，世界变得异常安静。艾拉雅站在山顶，俯瞰着整座城，星光微弱地洒在大地上。</span></p><p><span>正当她喘息着想要整理思绪时，脚下的大地轻微震颤了一下。她的心脏猛然加速跳动，仿佛回应着某种久远的记忆。那记忆并不属于她，却无比熟悉。</span></p><p><span>她的目光扫过脚下，突然，一丝微弱的蓝光从地面深处透了出来，仿佛在向她低语。那光芒如同一道细微的脉搏，充满了生命的律动。艾拉雅的眼睛微微睁大，心跳不自觉地与这光芒的频率同步。</span></p><p><span>“这是什么……”她喃喃自语，声音被风吞没。</span></p><p><span>她缓缓蹲下，手指轻轻抚过脚下的泥土。突然，一股电流般的感觉从她的指尖传来，瞬间遍布全身。她全身一震，心中的大气法术与脚下的力量瞬间产生了某种奇异的共鸣。她不再犹豫，开始用手一点点挖掘，随着泥土被掀开，那股力量变得愈发清晰。</span></p><p><span>艾拉雅的手突然触碰到了一层无形的屏障，似乎是一道结界，阻挡着她与这股力量的联系。她按在那屏障上，心中顿时涌起一种难以名状的情感。这不是恐惧，而是一种深深的渴望，一种她从未体验过的渴望——力量，无法抵挡的力量。</span></p><p><span>她闭上眼睛，试图感应那股力量的本质。突然，某种低沉的声音开始在她的耳边回荡，像是从远古传来，又像是来自她内心深处。</span></p><p><span>“接受我……掌控我……释放我......”</span></p><p><span>艾拉雅的呼吸变得急促，心中涌起一种激烈的冲动。她不确定这声音来自何处，但它似乎正在向她诉说，向她伸出无形的手。</span></p><p><span>“你需要力量，我赋予力量......”</span></p><p><span>她的手不自觉地按在了屏障上，仿佛与那股力量进行某种交流。蓝光在她的指尖闪烁，地面的震颤加剧，屏障之下的力量仿佛被激活，开始回应她的呼唤。</span></p><p><span>“雷电与风暴，这是你应得的本领......”</span></p><p><span>“唤雷震鼓？”艾拉雅心中一惊。那个被无心无数次讲述的故事，那能召来风暴的震鼓，被希里封印在隐蔽的地方，从此再也没有人见过。没有想到，它就被封印在肃曾经作法的山体之中，埋藏于岩石之下。</span></p><p><span>艾拉雅咬紧牙关，内心的挣扎在她的眼中闪现。她知道，这股力量充满了危险，唤雷震鼓曾经带来的毁灭她耳熟能详。然而，无心需要她，现在，她无法逃避。</span></p><p><span>“我别无选择……”她喃喃道，双手紧握，体内的大气法术开始流动，与脚下的屏障共鸣。风轻轻地围绕着她旋转，仿佛回应着她的决心。</span></p><p><span>她集中所有的意志，开始施展大气法术。风在她的指尖聚集，力量从她体内逐渐向屏障传递。屏障没有立刻响应，仿佛在试探她的意志。艾拉雅咬紧牙关，继续加强法术，汗珠从额头滑落，但她的眼神始终坚定不移。</span></p><p><span>终于，屏障开始轻微震动。地面下的力量感受到她的决心，开始微微松动。一阵微弱的电流从她手掌传来，空气中的能量涌动起来。</span></p><p><span>就在那一瞬间，地面下的封印似乎终于认同了她的意志，一道低沉的震动从地下传来，仿佛是沉睡已久的力量在缓缓苏醒。</span></p><p><span>艾拉雅猛然睁开眼，屏障的表面开始裂开，光芒从屏障中迸发而出。她的心脏疯狂跳动，眼前的景象让她屏住了呼吸——那是传说中的唤雷震鼓。它的鼓面上依旧刻满了古老的符文，每一个符号都在微微闪烁着电光，仿佛在等待着她的召唤。</span></p><p><span>艾拉雅的指尖轻触着地面，感觉那股力量从脚下的土地深处缓缓升起。最初，那只是如微风般的轻微触动，但随着她的大气法术慢慢释放，这股力量像是被唤醒了一般，开始越来越强烈，仿佛是来自深渊的低吟在召唤着她。</span></p><p><span>她闭上眼，心跳与大地的震动逐渐同步。空气仿佛变得沉重，她感受到一股无形的力量在脚下流动，似乎在等待她的回应。那力量既古老又充满威压，像是某种远古的存在在地底沉睡，而她的到来唤起了它久违的觉醒。</span></p><p><span>突然，地面剧烈震动，仿佛整个山脉都在颤抖。艾拉雅猛然睁开眼，视线中出现了一道裂缝，随着她的力量注入，裂缝越发扩大，蓝色的光芒从大地深处迸发而出，如同一道雷霆直击夜空。那光芒刺眼无比，仿佛要撕裂天地。</span></p><p><span>随之而来的，是一股难以言喻的威压。她的呼吸变得急促，双腿微微颤抖，但她依然站立着，眼中满是惊愕与震撼。大地似乎正在打开一扇沉重的门，而门的另一侧，是一个超乎她理解的存在。</span></p><p><span>“我将助你......超越一切......”</span></p><p><span>伴随着一声低沉的隆隆巨响，整个山顶的石壁轰然裂开。巨大的碎石向四周飞溅，尘土飞扬，但在那尘土之中，一座庞然大物缓缓从地底浮现——那是一面巨大的战鼓，封存于山脉深处的神器。</span></p><p><span>唤雷震鼓从封印中现身，它的巨大几乎遮天蔽日，鼓面宽广得像是一片雷电编织的织网，密布着无数复杂的符文，那些符文随着大气的流动闪烁着淡淡的电光，仿佛雷霆在其中潜伏，随时准备爆发。它不仅仅是一件神器，更像是一座亘古未动的祭坛，屹立在天地之间，带着一种难以言喻的庄严与毁灭力量。</span></p><p><span>艾拉雅屏住呼吸，仰望着眼前的这一切，内心感到一种既神圣又恐惧的感受。她全身的每一寸肌肤都感受到了唤雷震鼓传递出来的力量，那是不可抵挡的自然之力——雷霆与风暴的主宰。</span></p><p><span>在她的注视下，鼓面上出现了一道微微的光芒，那是象征着控制的魔法臂，在鼓的顶端缓缓浮现出来。它像是某种古老的造物，随着大气法术的牵引，手臂臂缓缓抬起，指向鼓面，仿佛在等待一场不可逆转的鸣响。</span></p><p><span>艾拉雅的心跳与魔法臂的移动同步，越来越快。她明白，这并不是她主动操控的，而是唤雷震鼓在回应她的到来，它在测试她的意志，它在询问——她是否愿意承受这股力量。</span></p><p><span>风在山顶开始迅速聚集，狂风卷起了她的长袍，天地间的空气变得越来越稠密。艾拉雅感觉到自己与这股力量的联系愈发紧密，仿佛她只需再迈出一步，便可掌控这雷霆的力量。</span></p><p><span>她的手指缓缓滑过鼓面，突然间，魔法臂猛然落下，发出一声震天动地的巨响。鼓声如同雷霆炸裂，在山顶上空回荡，瞬间席卷天地。大地在她脚下震颤，仿佛连远处的山脉也为之颤抖。</span></p><p><span>然而，预想中的风暴并未降临。天空依旧平静，夜幕沉寂如常。艾拉雅的目光中闪过一丝疑惑，但她依然能感受到唤雷震鼓的力量，它正在等待她完全掌控它，等待着她下一次的召唤。</span></p><p><span>这鼓声并未带来毁灭，但它的回响深邃而悠长，仿佛在呼唤着什么远古的存在，等待着命运的下一步揭晓。</span></p><h1 id='第五章'><span>第五章</span></h1><p><span>“这是......”希里听到声音，猛地抬起头，“怎么可能，无心，你到底教了她什么？”</span></p><p><span>在天马骑士的控制下，无心抬起头：“只有一个大气巫师该会的。你还不明白吗？真正导致这一切的其实是你自己。”</span></p><hr /><p><span>沉闷的鼓声再次响起，低沉而悠远，仿佛要穿透天地。艾拉雅站在山顶，汗水顺着额头滑落，她能感觉到体内的大气法力正在迅速消耗，但她没有停下。每一次鼓声，似乎都在召唤某种遥远且强大的存在，而这股召唤的力量让她的身体愈发虚弱。</span></p><p><span>然而，鼓声在山谷间回荡，却迟迟未引来预期中的雷霆之声。艾拉雅的眉头紧锁，心中充满了焦虑与不解。</span></p><p><span>“为什么……没有雷声回应？”她低声喃喃，目光扫过沉默的天空。</span></p><p><span>就在这时，天空突然亮起了一道强烈的光芒，仿佛烈日骤然降临，照亮了整座山峰。艾拉雅抬头，惊讶地看到一道巨大的光影从天际缓缓降临——是珀伽索斯。</span></p><p><span>艾拉雅的心脏狂跳，人们已经许久没有见过天枢的圣兽，为何它在此时突然降临。</span></p><p><span>“我不能停下……”艾拉雅咬紧牙关，唤雷震鼓又一次擂响，鼓声如滚滚潮水般向四方扩散，仿佛在撼动天地。但仍旧没有雷声回应。</span></p><p><span>就在鼓声响起的瞬间，珀伽索斯突然剧烈颤抖起来，光芒在它的周身摇曳不定，痛苦的嘶鸣在山谷间回荡。圣兽的身体似乎正承受着难以忍受的痛苦。</span></p><p><span>“怎么回事？”艾拉雅瞪大双眼，望着那曾象征光明与秩序的圣兽，此刻却在她的鼓声中显得极度痛苦。它的翅膀剧烈抖动，仿佛在竭力对抗体内的某种可怕力量。</span></p><hr /><p><span>与此同时，希里和她的天马骑士团赶到了山下。无心被押解着，但她脸上依旧带着冷静与决然的神色。伴随着鼓声的震荡，天马骑士团的步伐逐渐迟缓，强烈的音波使他们难以再轻易接近山顶。</span></p><p><span>骑士团的队长握紧长矛，神情紧张不安。“鼓声太强，我们无法再靠近！”他的声音中带着对未知力量的畏惧。</span></p><p><span>然而希里未曾理会骑士们的恐惧，她死死盯着痛苦挣扎的珀伽索斯，目光中流露出一丝惊恐。她非常清楚，珀伽索斯的痛苦并非来自任何外在的攻击，而是源于它体内的那股封存已久的力量——那个被她隐藏了二十年的秘密。</span></p><p><span>希里回忆起肃被击败的那一刻，那块从肃体内脱离的神秘金属，虽仅手掌大小，却被无数雷电缠绕。希里不理解它的真正力量，只知道它过于危险，必须隐藏起来。为了不让这件物品落入他人之手，她让珀伽索斯吞下它，以圣兽的生命作为屏障，阻止它的力量外泄。从此，雷电再也没有造访过特兰城，仿佛从源头上被切断了一般。</span></p><p><span>“是唤雷震鼓的声音，它在唤醒那股力量……”希里的脸色瞬间变得凝重。她意识到，这股被封存的力量正在响应鼓声的召唤，试图挣脱束缚，而珀伽索斯正因此而痛苦不堪，随时可能被这股力量撕裂。</span></p><p><span>“珀伽索斯，坚持住！”希里大声命令，语气中充满了决然。</span></p><p><span>珀伽索斯痛苦地嘶鸣，双翼猛然展开，光芒在夜空中闪耀得愈加刺目。但是随着又一声沉重的鼓响，一道闪电般的光束从它的口中喷薄而出。那块被雷电缠绕的金属从圣兽体内升向天空，二十年的封印终于被打破。</span></p><p><span>狂风开始在山顶四周汇聚，乌云以肉眼可见的速度在天空中迅速聚集。风暴的气息扑面而来，雷霆的咆哮隐隐回荡，仿佛天地正在被这股力量撼动。</span></p><p><span>珀伽索斯的痛苦在此刻消散，它振作了精神，光芒再次在它的双翼上闪耀。艾拉雅站在山顶，目光死死地盯着那件在雷电中悬浮的神秘物体。</span></p><p><span>“不要碰它，艾拉雅！”希里举起长矛，目光如锋，语气中带着威严与警告。“那是你无法控制的力量，肃因它差点害死整个特兰城！”</span></p><p><span>风暴的怒吼在她耳边回荡，雷电在天空中跳动，仿佛天地都在等待艾拉雅的决定。艾拉雅的心中充满了犹豫与挣扎，肃的名字让她陷入了短暂的迷茫，那个曾经带来无尽痛苦的名字，勾起了她内心深处的伤痕。</span></p><p><span>然而，珀伽索斯看准了这一瞬的犹豫，迅速俯冲向艾拉雅，打算在她做出决定前终结一切。</span></p><p><span>无心察觉到了帕伽索斯的意图，尽管被控制，她依然低声咏唱，暗影从地面升起，化作无形的锁链，瞬间束缚住珀伽索斯的双翼，暂时拖住了它的动作。</span></p><p><span>圣兽的光芒被暗影削弱，但它很快便爆发出强大的力量，光芒击碎了无心的束缚。无心的脸色惨白，身体摇摇欲坠，她的力量几乎耗尽。</span></p><p><span>“暗影的小人，真是不见棺材不落泪！”希里怒喝着，禁言法术立刻封住了无心的嘴，让她无法继续吟唱法术。</span></p><p><span>没有时间犹豫了。</span></p><p><span>艾拉雅深吸一口气，咬紧牙关，向前迈出一步，风将她吹起带向空中，她伸出手去，触碰到了那件被雷霆包裹的神器。她的指尖刚碰触到它的瞬间，一股极为强大的电流猛然涌入她的身体，仿佛洪流般冲击她的每一根神经。</span></p><p><span>她的意识在触碰到那件神器的瞬间被雷霆撕裂，耳边回荡着震耳欲聋的轰鸣。巨大的痛苦如潮水般袭来，几乎令她的四肢麻痹，身体因剧烈的颤抖而难以支撑。视野中充斥着无数闪电，眼前的世界化作一片刺目的白光与剧烈的刺痛。</span></p><p><span>她的思绪如同被无形的力量撕碎，神器仿佛在她心中嘶吼，各种她从未经历过的画面不断涌入她的思维之中，让她几乎喘不过气来。</span></p><p><span>她看到了数十年的修行游历，对于技艺日以继夜的操练，打磨，从小小的电弧，到横跨长空的阴雷。流浪的人最终在一个城市找到了归宿。</span></p><p><span>“我会被毁灭……”她在心底发出无声的呐喊，意识一度模糊，仿佛正被这股狂暴的力量彻底吞噬。雷电在她体内肆虐，犹如一头猛兽撕扯着她的意志，欲将她拖入无尽的混沌与毁灭。</span></p><p><span>她看到特兰城的无数次战斗，雷电的庇护下，一次又一次的胜利。</span></p><p><span>雷霆包裹住她的全身，仿佛她自己已成了雷电的一部分，痛苦仿佛无穷无尽，几乎剥夺了她所有的思考能力。就在她即将被这股力量彻底压垮的那一刻，艾拉雅猛然清醒。她意识到，她不能这么被力量吞噬。</span></p><p><span>她看到了绝望的未来，力量随着青春的流逝而不可避免地衰退，这是人生来就带上的枷锁，自己终会在一场战斗中倒下，留下无助的特兰城被撕碎。</span></p><p><span>“不，我要掌控它！”艾拉雅咬紧牙关，拼尽全力集中意志，强行与这股狂暴的力量对抗。</span></p><p><span>她看到了野心的种子，那几近疯狂的计划——去掌控雷电，去成为天地间风暴的主宰者，那比肩神灵的力量。</span></p><p><span>雷电在她体内的奔腾逐渐平息下来，那股原本狂乱的力量开始回应她的意志。艾拉雅感受到自己的意识与这股雷霆产生了共鸣，体内的力量不再是无序的破坏，而是变成了她可以引导和掌控的风暴之力。</span></p><p><span>她看到了无数的雷霆在她的手中凝聚，四境雷动，不过弹指之间，成功的喜悦和解脱涌上心头。</span></p><p><span>乌云在她四周盘旋凝聚，雷霆在她的掌控下跳动，电光在她的眼中闪烁，犹如风暴本身的化身。</span></p><p><span>她看到了一道圣洁的光芒撕裂风暴，那是被圣光庇护的长矛，破光而出，直刺向她的胸膛。一切画面突然消失，那一刻，她仿佛从一个很长的梦中惊醒。</span></p><p><span>内心的嘶吼突然安静下来。四周的风暴仿佛瞬间平息，变得无声无息。她试图转头，但她的一丝动作便搅动起狂风，她的意识已经与风暴融为一体。</span></p><p><span>“我并不操纵风暴”艾拉雅低声自语，眼神中闪烁着坚定与自信，“我就是风暴”</span></p><p><span>天空的雷鸣愈发强烈，闪电在乌云中肆虐。</span></p><p><span>希里举起长矛，面色凝重。她知道，艾拉雅已然成为了她必须面对的强大对手。</span></p><p><span>珀伽索斯在她身旁长啸，展开巨大的双翼，金光直冲云霄。</span></p><h1 id='第六章'><span>第六章</span></h1><p><span>艾拉雅置身风眼之中，雷霆在她的指尖跳动，仿佛整个天地都在她的掌控之下，乌云在她头顶盘旋，巨大的漩涡中雷霆时而爆发，轰鸣声震撼天地。</span></p><p><span>对面，珀伽索斯依旧闪耀着耀眼的圣光，强大而神圣，仿佛要与这狂暴的风暴力量分庭抗礼。希里握紧了手中的长矛，面色冷峻，目光如剑般锁定艾拉雅，眼中没有一丝退缩。她知道，这一战将决定特兰城的命运，而她必须，像曾经那样，击败风暴的掌控者。</span></p><p><span>“艾拉雅，你走的这条路，和肃没有两样。”希里的声音如同圣光中的回响，充满了光明信徒的坚定与冷酷。“你以为你能驾驭这股力量，但最终，你只会被它吞噬。”</span></p><p><span>雷霆的咆哮掩盖了一切声音，但艾拉雅的内心如一片寂静的海。她没有回应，雷电在她眼中闪烁，风暴在她的血液中流动。她知道，战斗已经无法避免。她不明白肃的动机，但她知道自己为什么要这么做。她已经丢下无心逃跑过一次了，不会有第二次了。</span></p><p><span>珀伽索斯猛然俯冲而下，双翼展开，圣光如利箭般刺向艾拉雅。那一刻，希里仿佛回到了当年与肃对峙的时刻，光明与风暴再一次在天空中交锋。</span></p><p><span>“珀伽索斯！”希里握紧长矛，呼叫她的圣兽，帕伽索斯的圣光包裹希里，冲破乌云。</span></p><p><span>艾拉雅猛然抬手，雷霆如怒潮般从她的指尖爆发，向圣光射去。两股力量在空中剧烈碰撞，轰鸣声震撼天地。雷电与光芒交织成一片刺眼的闪光，仿佛连空气都被撕裂，天地在力量的冲击下颤动，四周仿佛被无数利刃割裂。</span></p><p><span>闪光骤然破碎，光芒如碎裂的镜子般四散，希里从光芒中猛然现身。</span></p><p><span>“让这一切终结吧。”希里大喊，手中的矛向艾拉雅刺去。</span></p><hr /><p><span>但就在这一刻，希里突然感到眼前一片漆黑——周围的世界仿佛被瞬间吞没，所有的光明都消失得无影无踪。她的视野中，漆黑的虚空仿佛无限蔓延，四周没有任何可以依赖的事物，只有无尽的寂静与黑暗。</span></p><p><span>“这是什么？”希里心中涌起一股难以名状的恐惧，她的手指微微颤抖，长矛在黑暗中失去了目标。</span></p><p><span>一个巨大的眼睛在虚空中缓缓浮现。那只眼睛冰冷而无情，没有快乐，没有哀伤。它观察着希里，仿佛阅读一行文字。希里感到自己的力量正被无形的力量一点点抽离，仿佛灵魂也在逐渐被黑暗吞噬。</span></p><p><span>“让我看看......是谁有如此殊荣......” 一个阴沉而悠远的声音回荡在希里的耳边，仿佛从虚空的深处传来，带着刺骨的寒意。暗影如丝线般从四周升起，逐渐缠绕住希里的四肢，慢慢勒紧。</span></p><p><span>希里拼尽全力挣扎，试图挥舞长矛，但所有的力量仿佛都被黑暗吸干。她的目光向虚空深处看去，隐约看见，在黑暗的另一边，无心的身影正静静地伫立着，目光冷漠，像看穿了一切。</span></p><p><span>“无心，真没想到你还有花招” 希里艰难地扯动嘴角，露出一丝讥讽的笑容。“卑鄙的暗影巫师，我果然没有看错你。”</span></p><p><span>无心的目光依旧平静，语气中透出淡淡的哀伤与决绝。“你只看到了自己希望看到的的，一直是这样”。</span></p><p><span>瞬间，暗影的线缕猛然收紧，仿佛无数铁链同时绞杀。希里瞪大了双眼，然而她的身体在这股强大的黑暗力量中迅速崩解，光芒被暗影彻底吞噬。片刻间，她的身躯化作一摊灰烬，随风飘散在无尽的虚空中，连最后的残影都消失不见。</span></p><p><span>无心静静地站在原地，目光沉默，她的脸上没有胜利的喜悦，只有一丝悲悯。一张古老的羊皮纸缓缓浮现在她的面前，上面布满了难以解读的符号。虚空中的眼睛看着无心，等待着她。</span></p><p><span>无心轻轻伸出手，触摸那张羊皮纸，指尖接触的一瞬间，她的身体与羊皮纸一同燃烧起来。火焰无声地蔓延，吞噬了她的身躯，黑暗的烈焰将她包裹其中，直到她彻底化为灰烬，随风飘散。</span></p><p><span>虚空中的眼睛缓缓闭上，整个空间坍缩直至消失，仿佛从未存在过。</span></p><hr /><p><span>空气中的暗影逐渐散去，希里不见踪影。珀伽索斯爆发出一声哀鸣，光芒在它的双翼间再次凝聚，仿佛要用尽最后的力量发起致命一击。失去了希里的指引，圣兽变得更加狂暴，但它依然强大无比。天马骑士团重新聚集，准备发起最后的总攻。</span></p><p><span>艾拉雅深吸一口气，周围的雷霆再次聚集，风暴在她的意念下愈发狂暴。无心与希里不见踪影，接下来是珀伽索斯与她的决战。</span></p><p><span>“来吧，让我们一了百了。”艾拉雅的声音坚定，曾经的迷茫早已消散，现在的她不再有任何迟疑。</span></p><p><span>珀伽索斯猛然冲向艾拉雅，双翼闪耀着毁灭性的圣光，直逼艾拉雅而来。天马骑士团的骑士紧随其后，圣光长矛在手，试图依靠协同作战再次击溃艾拉雅。</span></p><p><span>艾拉雅面色不变，雷电在她的意念中翻腾。她挥动双手，银色的雷霆从她的指尖迸发，如狂暴的雷蛇迅速席卷战场。雷霆击中了前方的骑士，强大的电流将他们瞬间击倒，圣光长矛在雷电的冲击下化为碎片。</span></p><p><span>珀伽索斯在空中发出愤怒的嘶吼，它的光芒依然闪耀，试图用圣光再次压制雷霆。然而，雷霆的狂暴力量几乎要撕裂天空，艾拉雅毫不退缩，释放出更强大的雷霆。她挥手间，雷电化作巨大的风暴漩涡，直击珀伽索斯。圣光与雷霆在空中激烈碰撞，雷电与光芒的交锋让整个天空被刺目的闪光撕裂。</span></p><p><span>珀伽索斯在雷霆中发出一声凄厉的长啸，它的双翼在强大的雷电冲击下开始颤抖，圣光逐渐暗淡。尽管它竭力想要反击，但雷霆的力量在艾拉雅的掌控下无比精准，仿佛每一道闪电都能准确击中珀伽索斯的弱点。</span></p><p><span>“结束了，珀伽索斯……”艾拉雅的声音低沉而冷静。她双手扬起，雷电在她周身凝聚成一条巨大的雷霆之蛇，犹如天罚般，直击珀伽索斯的身躯。</span></p><p><span>雷蛇与圣光在空中相撞，爆发出震耳欲聋的巨响。天地在这一刻似乎停止了呼吸，随后一阵剧烈的冲击波扩散开来，仿佛要将整个战场撕裂。珀伽索斯在雷电的轰击下发出一声痛苦的嘶鸣，它的双翼在雷霆的打击下变得无力，身体在空中摇摇欲坠。</span></p><p><span>珀伽索斯的光芒在它的咆哮中依然闪烁，但它的力量终究在雷霆的重击下开始崩溃。光明的圣力无法再支撑它，它的身影在空中摇晃，最终，随着最后一道雷霆的轰击，它的身体如同折断的羽翼，失去了所有的光辉，坠落向大地。</span></p><p><span>艾拉雅冷冷地注视着珀伽索斯的陨落，雷电在她的眼中依然闪烁。圣兽坠地时发出的沉重闷响如同一声宣告，整个山顶上的风暴也随之平静下来。</span></p><p><span>珀伽索斯的光芒逐渐消失，曾经代表光明与秩序的圣兽，在雷霆的咆哮中败北。</span></p><hr /><p><span>随着珀伽索斯的倒下，山顶的战场陷入了一片死寂。天马骑士团的成员目睹了珀伽索斯的陨落，脸上露出不可置信的神情，光明的信仰仿佛在他们的眼中彻底破碎。失去了圣兽和团长，他们的战意早已崩溃。</span></p><p><span>“撤退……撤退！”一名骑士颤抖着大声喊道，挥动着长矛，指挥剩下的骑士逃离。光明的力量已被风暴压制，他们再无抵抗的勇气，徒劳无功的战斗只会迎来毁灭。</span></p><p><span>艾拉雅静静地站在山顶，目光冷峻地扫过战场。雷电的力量依旧在她的体内奔腾，但她没有继续追击。天马骑士团的残余成员如同惊弓之鸟，四散而逃，风暴中的雷鸣声渐渐消失，乌云也开始缓缓散去。曾经的迷茫、愤怒与挣扎，伴随着这场战斗的终结，也终于消散。</span></p><p><span>艾拉雅低头看着无心曾站立的地方，她希望无心能突然出现，然后带领她回家，但是她知道，这一切都不过是幻想罢了。夜幕之下，特兰城内火光冲天。</span></p><h1 id='第七章'><span>第七章</span></h1><p><span>城堡内，特兰二世瑟缩在王座后，满脸的惊恐与绝望再也无法掩盖他昔日作为统治者的威严。曾经不可一世的骄傲早已消散，取而代之的是对失控局势的恐惧。他的城市正陷入暴动，他的臣民正在破门而入，光明的庇护在这一刻显得遥不可及。</span></p><p><span>骑士团早已出城，而风暴的掩护让愤怒的民众终于突破了防线，攻入了城堡。他们的怒吼犹如滚滚雷鸣，震耳欲聋。特兰二世瘫坐在地，眼中只剩下混乱和无边的恐惧。他喃喃自语，声音微弱而颤抖。</span></p><p><span>“我的父亲，希里……他们都为这座城付出了生命……为什么？为什么你们要背叛我？”</span></p><p><span>他的双手紧握成拳，指关节发白，身体微微颤抖。房间里燃烧着愤怒的目光，仿佛火焰般灼烧着特兰二世的脸庞。</span></p><p><span>“你把我们推入了绝境！”一名粗哑的声音从人群中传出，带着不可遏制的愤怒。“饥荒、死亡……我们已经受够了！”</span></p><p><span>突然，一名瘦弱的老妇从人群中冲出，手持短刀，眼中燃烧着仇恨。她毫不迟疑地将刀刃刺入特兰二世的胸膛。他的眼睛瞬间瞪大，恐惧在他眼中迅速扩散，随即被无力的绝望所取代。</span></p><p><span>他仿佛被人们的愤怒撕裂，每一次刀刃的挥动，都带着他们多年的痛苦与不满。特兰二世的身体在他们面前缓缓倒下，曾经属于他的权威一同崩塌。随着他的最后一声喘息，特兰城的旧秩序也随之烟消云散。</span></p><h1 id='尾声'><span>尾声</span></h1><p><span>珀伽索斯的倒下标志着战斗的终结。失去了它和天马骑士团的守护，特兰城再次回到了自然的怀抱。曾经以为只有光明才能庇护的城市，重新迎来了熟悉的阴晴不定的天气，风暴时而席卷，阳光时而温暖。然而，令人惊奇的是，随着光明力量的消失，粮食的产量竟悄然恢复。田地中的作物再度茁壮生长，特兰城逐渐摆脱了饥荒的困境。</span></p><p><span>失去了保护者的特兰城，开始适应风暴与晴朗的交替生活。尽管一度陷入恐慌，然而大自然的节奏逐渐恢复，风暴不再被视为灾难，而是生命循环的一部分。民众慢慢理解，没有单一的元素能拯救他们，真正的平衡来自于自然本身。</span></p><p><span>艾拉雅站在城外的山峰上，俯瞰着带给她无数痛苦的城市。无心的牺牲深深烙印在她的心中，但她明白，自己的旅程还没有结束。虽然拥有雷电的力量，但是她对于这一切所知少之甚少，她悄然离开，独自踏上了通往未知的旅途。她穿越了无尽的山脉与荒野，寻找与力量共处的方法。无论她身处何处，无论这股力量是祝福还是诅咒，这既是她的挑战，也是她今后的命运。</span></p></div></div>
+
+<script>(function(){var e=document.body.parentElement,t=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(e,t,n){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var i=e.target;i&&i!=this;i=i.parentNode)if(i.matches(t)){!1===n.call(i,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)};function o(){return e.scrollTop}r("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),d(),!1}),r("click",".outline-item",function(e){var t=this.querySelector(".outline-label");if(location.hash="#"+t.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),c(),n.add("outline-item-active")}});var a,s,l=function(){var e=o();n=null;for(var i=0;i<t.length&&t[i][1]-e<60;i++)n=t[i]},c=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},d=function(){if(n){c();var e=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(e)if(i){var t=e.closest(".outline-item-open>ul>.outline-item-wrapper");if(t)t.classList.add("outline-item-active");else{for(var r=(e=e.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(e=r).parentElement.closest(".outline-item-wrapper");e.classList.add("outline-item-active")}}else e.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(e){a&&clearTimeout(a),a=setTimeout(function(){l(),d()},300)});var u=function(){s=setTimeout(function(){!function(){t=[];var e=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");t.push([i,e+n.getBoundingClientRect().y])})}(),l(),d()},300)};window.addEventListener("resize",function(e){s&&clearTimeout(s),u()}),u()})();</script></body>
+</html>

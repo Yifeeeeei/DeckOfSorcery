@@ -48,6 +48,12 @@ const configs = {
                     jumpHere("htmls/Dawn.html");
                 },
             },
+            Storm: {
+                name: "风暴之城",
+                function: function () {
+                    jumpHere("htmls/Storm.html");
+                },
+            },
         },
     },
 };
