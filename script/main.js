@@ -10,7 +10,7 @@ const configs = {
             deckBuild: {
                 name: "卡组构筑",
                 function: function () {
-                    jumpToOther("https://yifeeeeei.github.io/SorceryComposer/");
+                    jumpToOther("https://yifeeeeei.github.io/ArcaneComposer/");
                 },
             },
             ttsMod: {
